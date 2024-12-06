@@ -71,7 +71,7 @@ dependencies:
 
 #----------------- ./ PACKAGES END -----------------#
 
-  comprehensive_pharmacy_client_role: any
+  comprehensive_pharmacy_pharmacy_role: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,8 +1,8 @@
 // ignore_for_file: must_be_immutable
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/device/device_utility.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/device/device_utility.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

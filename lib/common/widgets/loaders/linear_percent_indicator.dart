@@ -1,7 +1,7 @@
-import 'package:comprehensive_pharmacy_client_role/services/file_services.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/image_strings.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/services/file_services.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:percent_indicator/percent_indicator.dart';

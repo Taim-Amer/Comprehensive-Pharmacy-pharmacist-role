@@ -1,5 +1,5 @@
 import 'dart:convert';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 

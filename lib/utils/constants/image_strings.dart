@@ -61,7 +61,7 @@ class TImages {
   static const String userProfile = "assets/logos/profile/Vector.svg";
   static const String notificationEmpty = "assets/images/Group 39446.svg";
 
-  // Client Profile
+  // pharmacy Profile
   static const String down = "assets/icons/global/Down.svg";
   static const String up = "assets/icons/global/Up.svg";
 }

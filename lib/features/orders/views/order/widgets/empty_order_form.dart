@@ -1,6 +1,6 @@
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_empty_body.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/orders_header.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/orders_empty_body.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/orders_header.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class EmptyOrderForm extends StatelessWidget {

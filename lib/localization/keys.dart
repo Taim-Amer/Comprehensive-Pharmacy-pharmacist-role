@@ -19,9 +19,9 @@ class TranslationKey{
   static String get kOtpTitle => "otpTitle".tr;
   static String get kUsername => "username".tr;
   static String get kEmail => "email".tr;
-  static String get kClientName => "clientName".tr;
-  static String get kClientAddress => "clientAddress".tr;
-  static String get kClientPhone => "clientPhone".tr;
+  static String get kpharmacyName => "pharmacyName".tr;
+  static String get kpharmacyAddress => "pharmacyAddress".tr;
+  static String get kpharmacyPhone => "pharmacyPhone".tr;
   static String get kPageNumber => "pageNumber".tr;
   static String get kRecords => "records".tr;
   static String get kAddSponsor => "addSponsor".tr;
@@ -33,7 +33,7 @@ class TranslationKey{
   static String get kMonthlyPayment => "monthlyPayment".tr;
   static String get kAddNewItem => "addNewItem".tr;
   static String get kTotalPayment => "totalPayment".tr;
-  static String get kClients => "clients".tr;
+  static String get kpharmacys => "pharmacys".tr;
   static String get kTotalDebts => "totalDebts".tr;
   static String get kNotations => "notations".tr;
   static String get kNonPayers => "nonPayers".tr;
@@ -46,9 +46,9 @@ class TranslationKey{
   static String get kTotalReceived => "totalReceived".tr;
   static String get kTotalDebtors => "totalDebtors".tr;
   static String get kAll => "all".tr;
-  static String get kClientInformation => "clientInformation".tr;
+  static String get kpharmacyInformation => "pharmacyInformation".tr;
   static String get kBySponsor => "bySponsor".tr;
-  static String get kClientStatus => "clientStatus".tr;
+  static String get kpharmacyStatus => "pharmacyStatus".tr;
   static String get kCollectionDate => "collectionDate".tr;
   static String get kPayment => "payment".tr;
   static String get kBuying => "buying".tr;

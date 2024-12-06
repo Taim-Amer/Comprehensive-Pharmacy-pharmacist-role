@@ -1,5 +1,5 @@
-import 'package:comprehensive_pharmacy_client_role/common/widgets/buttons/radio_button.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/enums.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/radio_button.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:flutter/material.dart';
 
 class LanguageRadioTile extends StatelessWidget {

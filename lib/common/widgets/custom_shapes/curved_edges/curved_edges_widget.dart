@@ -1,4 +1,4 @@
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/curved_edges/curved_edges.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/curved_edges/curved_edges.dart';
 import 'package:flutter/material.dart';
 
 class TCurvedEdgeWidget extends StatelessWidget {

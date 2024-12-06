@@ -1,4 +1,5 @@
-import 'package:comprehensive_pharmacy_client_role/localization/keys.dart';
+
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 
 class TValidator {
 

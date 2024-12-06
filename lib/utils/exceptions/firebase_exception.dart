@@ -1,6 +1,4 @@
-
-
-import 'package:comprehensive_pharmacy_client_role/utils/exceptions/failures.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/exceptions/failures.dart';
 
 class TFireBaseException extends Failure {
   TFireBaseException(String code) : super(code, _getMessage(code));
@@ -12,7 +10,7 @@ class TFireBaseException extends Failure {
       case 'unknown':
         return 'Unknown error or an error from a different error domain.';
       case 'invalid-argument':
-        return 'Client specified an invalid argument.';
+        return 'pharmacy specified an invalid argument.';
       case 'deadline-exceeded':
         return 'Deadline expired before the operation could complete.';
       case 'not-found':

@@ -1,14 +1,15 @@
-import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/controllers/home_controller.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/add_notation_textfield.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/files_list.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_header.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/home_navbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/home/widgets/upload_files_container.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/home_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/widgets/add_notation_textfield.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/widgets/files_list.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/widgets/home_header.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/widgets/home_navbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/widgets/upload_files_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_appbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_drawer.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class HomeScreen extends StatelessWidget {

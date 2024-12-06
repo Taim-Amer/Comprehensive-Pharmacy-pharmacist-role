@@ -1,4 +1,4 @@
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 

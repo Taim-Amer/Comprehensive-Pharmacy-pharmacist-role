@@ -29,7 +29,7 @@ constexpr const wchar_t kGetPreferredBrightnessRegValue[] = L"AppsUseLightTheme"
 // The number of Win32Window objects that currently exist.
 static int g_active_window_count = 0;
 
-using EnableNonClientDpiScaling = BOOL __stdcall(HWND hwnd);
+using EnableNonpharmacyDpiScaling = BOOL __stdcall(HWND hwnd);
 
 // Scale helper to convert logical scaler values to physical using passed in
 // scale factor
@@ -37,18 +37,18 @@ int Scale(int source, double scale_factor) {
   return static_cast<int>(source * scale_factor);
 }
 
-// Dynamically loads the |EnableNonClientDpiScaling| from the User32 module.
+// Dynamically loads the |EnableNonpharmacyDpiScaling| from the User32 module.
 // This API is only needed for PerMonitor V1 awareness mode.
 void EnableFullDpiSupportIfAvailable(HWND hwnd) {
   HMODULE user32_module = LoadLibraryA("User32.dll");
   if (!user32_module) {
     return;
   }
-  auto enable_non_client_dpi_scaling =
-      reinterpret_cast<EnableNonClientDpiScaling*>(
-          GetProcAddress(user32_module, "EnableNonClientDpiScaling"));
-  if (enable_non_client_dpi_scaling != nullptr) {
-    enable_non_client_dpi_scaling(hwnd);
+  auto enable_non_pharmacy_dpi_scaling =
+      reinterpret_cast<EnableNonpharmacyDpiScaling*>(
+          GetProcAddress(user32_module, "EnableNonpharmacyDpiScaling"));
+  if (enable_non_pharmacy_dpi_scaling != nullptr) {
+    enable_non_pharmacy_dpi_scaling(hwnd);
   }
   FreeLibrary(user32_module);
 }
@@ -198,7 +198,7 @@ Win32Window::MessageHandler(HWND hwnd,
       return 0;
     }
     case WM_SIZE: {
-      RECT rect = GetClientArea();
+      RECT rect = GetpharmacyArea();
       if (child_content_ != nullptr) {
         // Size and position the child window.
         MoveWindow(child_content_, rect.left, rect.top, rect.right - rect.left,
@@ -241,7 +241,7 @@ Win32Window* Win32Window::GetThisFromHandle(HWND const window) noexcept {
 void Win32Window::SetChildContent(HWND content) {
   child_content_ = content;
   SetParent(content, window_handle_);
-  RECT frame = GetClientArea();
+  RECT frame = GetpharmacyArea();
 
   MoveWindow(content, frame.left, frame.top, frame.right - frame.left,
              frame.bottom - frame.top, true);
@@ -249,9 +249,9 @@ void Win32Window::SetChildContent(HWND content) {
   SetFocus(child_content_);
 }
 
-RECT Win32Window::GetClientArea() {
+RECT Win32Window::GetpharmacyArea() {
   RECT frame;
-  GetClientRect(window_handle_, &frame);
+  GetpharmacyRect(window_handle_, &frame);
   return frame;
 }
 

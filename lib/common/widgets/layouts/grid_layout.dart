@@ -1,4 +1,4 @@
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 
 class TGridLayout extends StatelessWidget {

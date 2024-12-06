@@ -1,6 +1,5 @@
 import 'dart:io';
-
-import 'package:comprehensive_pharmacy_client_role/utils/logging/logger.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 

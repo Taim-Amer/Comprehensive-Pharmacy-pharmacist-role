@@ -1,12 +1,13 @@
-import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/buttons/back_icon.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/otp_button.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/otp_footer.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/otp_header.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signup/widgets/otp_textfield.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_button.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_footer.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_header.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_textfield.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});

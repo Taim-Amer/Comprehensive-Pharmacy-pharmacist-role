@@ -1,5 +1,4 @@
-
-import 'package:comprehensive_pharmacy_client_role/utils/exceptions/failures.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/exceptions/failures.dart';
 
 class TFireBaseAuthException extends Failure {
   TFireBaseAuthException(String code) : super(code, _getMessage(code));

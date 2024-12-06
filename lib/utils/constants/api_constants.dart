@@ -26,13 +26,13 @@ class TApiConstants {
 
   static const String getMyDebts = "user/get_my_debts";
 
-  static const String getClientProfile = "user/get_customer_profile";
+  static const String getpharmacyProfile = "user/get_customer_profile";
 
   static const String selectReminder = "user/select_reminder";
 
   static const String getNotes = "user/get_notes";
 
-  static const String updateClientProfile = "user/update_customer_profile";
+  static const String updatepharmacyProfile = "user/update_customer_profile";
 
   static const String sendNotification = "user/send_notification_to_users";
 

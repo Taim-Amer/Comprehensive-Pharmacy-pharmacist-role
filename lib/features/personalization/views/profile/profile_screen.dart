@@ -1,19 +1,20 @@
-import 'package:comprehensive_pharmacy_client_role/app.dart';
-import 'package:comprehensive_pharmacy_client_role/common/styles/spacing_styles.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/common/widgets/custom_shapes/containers/rounded_container.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/controllers/signin_controller.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/views/signin/widgets/phone_country_code.dart';
-import 'package:comprehensive_pharmacy_client_role/features/orders/views/order/widgets/general_drawer.dart';
-import 'package:comprehensive_pharmacy_client_role/features/personalization/views/profile/widgets/profile_appbar.dart';
-import 'package:comprehensive_pharmacy_client_role/features/personalization/views/profile/widgets/profile_form.dart';
-import 'package:comprehensive_pharmacy_client_role/features/personalization/views/profile/widgets/profile_header.dart';
-import 'package:comprehensive_pharmacy_client_role/features/personalization/views/profile/widgets/profile_save_button.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/text_strings.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/app.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signin_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signin/widgets/phone_country_code.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_drawer.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_appbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_form.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_header.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_save_button.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {

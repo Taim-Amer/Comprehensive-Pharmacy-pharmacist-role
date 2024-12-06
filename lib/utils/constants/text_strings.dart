@@ -203,7 +203,7 @@ class TEnglishTexts {
 
   // Order status
   static String get processingTitle => 'Processing';
-  static String get processingSubTitle => 'Your order is being processed by the pharmacist';
+  static String get processingSubTitle => 'Your order is being processed by the pharmacy';
   static String get onWaySubTitle => 'Your order is being delivered by our team';
   static String get onWayTitle => 'On the way';
   static String get deliveredTitle => 'Delivered';

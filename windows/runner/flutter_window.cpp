@@ -14,7 +14,7 @@ bool FlutterWindow::OnCreate() {
     return false;
   }
 
-  RECT frame = GetClientArea();
+  RECT frame = GetpharmacyArea();
 
   // The size here must match the window dimensions to avoid unnecessary surface
   // creation / destruction in the startup path.
