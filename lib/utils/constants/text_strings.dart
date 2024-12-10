@@ -75,6 +75,10 @@ class TArabicTexts {
   static String get rejectedOrdersEmptySubTitle => '';
   static String get finishedOrdersEmptySubTitle => '';
   static String get finishedOrdersEmptyTitle => '';
+  static String get noteFromCustomer => '';
+  static String get locationCustomer => '';
+  static String get confirmOrder => '';
+  static String get rejectOrder => '';
 
   // Home
   static String get homeTitle => '';
@@ -213,7 +217,10 @@ class TEnglishTexts {
   static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
   static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
   static String get finishedOrdersEmptyTitle => 'There are no completed orders';
-
+  static String get noteFromCustomer => 'Note from the customer';
+  static String get locationCustomer => 'Customer location';
+  static String get confirmOrder => 'Confirm order';
+  static String get rejectOrder => 'Reject order';
 
   // Home
   static String get homeTitle => 'Upload your prescription';

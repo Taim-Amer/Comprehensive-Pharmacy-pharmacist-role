@@ -2,6 +2,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appba
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/note_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_description_column.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_details_page_view.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
@@ -39,7 +40,9 @@ class OrderDetailsScreen extends StatelessWidget {
         children: [
           const OrderItem(showViewButton: false),
           TSizes.spaceBtwItems.verticalSpace,
-          const PhotoContainer()
+          const PhotoContainer(),
+          TSizes.spaceBtwItems.verticalSpace,
+          const NoteContainer()
         ],
       ),
     );
