@@ -4,7 +4,6 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/completed_list.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_drawer.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_floating_action_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_status_chip.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/orders_header.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -24,7 +23,6 @@ class OrderScreen extends StatelessWidget {
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
           return Scaffold(
-            floatingActionButton: const OrderFloatingActionButton(),
             drawer: const GeneralDrawer(),
             appBar: const TAppBar(
               title: GeneralAppbar(),

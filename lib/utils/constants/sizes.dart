@@ -1,4 +1,5 @@
 class TSizes {
+  TSizes._();
 
   // Padding and margin sizes
   static const double xs = 4;

@@ -1,4 +1,5 @@
 class TArabicTexts {
+  TArabicTexts._();
   // Global Texts
   static String get next => 'التالي';
   static String get add => 'إضافة';
@@ -135,6 +136,8 @@ class TArabicTexts {
 }
 
 class TEnglishTexts {
+  TEnglishTexts._();
+
   // Global Texts
   static String get next => 'Next';
   static String get add => 'Add';

@@ -1,7 +1,7 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/services/file_services.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/services/file_services.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/dotted_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';

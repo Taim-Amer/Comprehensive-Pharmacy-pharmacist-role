@@ -1,4 +1,5 @@
 class TApiConstants {
+  TApiConstants._();
 
   static const String baseUrl = 'https://tahadebt.technoplus.dev/api/';
 
