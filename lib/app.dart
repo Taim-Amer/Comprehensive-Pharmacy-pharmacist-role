@@ -1,3 +1,5 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/home_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/settings/settings_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
@@ -25,7 +27,7 @@ class pharmacyApp extends StatelessWidget {
         // locale: const Locale('en'),
         // fallbackLocale: const Locale('en'),
         // initialBinding: ForgetPasswordBinding(),
-        home: const SettingsScreen(),
+        home: const OrderScreen(),
       ),
     );
   }

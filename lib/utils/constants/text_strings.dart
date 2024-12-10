@@ -90,7 +90,6 @@ class TArabicTexts {
   static String get deliveredSubTitle => '';
   static String get confirmDelivery => '';
 
-
   // Settings
   static String get settings => 'الإعدادات';
   static String get languageChange => 'تغيير اللغة';
@@ -132,7 +131,7 @@ class TEnglishTexts {
   static String get passwordEnter => 'Enter password';
   static String get forgetPassword => 'Forget password?';
   static String get login => 'Login';
-  static String get signupQuastion => 'Dont have an account?';
+  static String get signupQuastion => 'Don\'t have an account?';
   static String get register => 'Sign up';
   static String get phoneNumber => 'Phone number';
   static String get registerTitle => 'Signup';
@@ -177,6 +176,24 @@ class TEnglishTexts {
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';
   static String get prescriptionPhoto => 'Prescription photo';
+  static String get readyToReceiveTitle => 'Ready to receive orders';
+  static String get readyToReceiveSubTitle => 'Switch to unactive if your not ready';
+  static String get newOrders => 'New orders';
+  static String get currentOrders => 'Current orders';
+  static String get rejectedOrders => 'Rejected';
+  static String get finishedOrders => 'Finished orders';
+  static String get viewOrders => 'View order';
+  static String get customerName => 'Customer name';
+  static String get orderNo => 'Order No: # 34566';
+  static String get newOrdersEmptyTitle => 'There are no new orders currently';
+  static String get newOrdersEmptySubTitle => 'Make sure you are available to be able to receive requests';
+  static String get currentOrdersEmptySubTitle => 'All orders that are still in progress appear here';
+  static String get currentOrdersEmptyTitle => 'There are no ongoing requests currently';
+  static String get rejectedOrdersEmptyTitle => 'There are no rejected requests';
+  static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
+  static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
+  static String get finishedOrdersEmptyTitle => 'There are no completed orders';
+
 
   // Home
   static String get homeTitle => 'Upload your prescription';
