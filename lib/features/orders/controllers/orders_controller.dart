@@ -10,10 +10,10 @@ class OrdersController extends GetxController {
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.completed,
-    TEnglishTexts.pending,
-    TEnglishTexts.canceled,
+    TEnglishTexts.newOrders,
+    TEnglishTexts.currentOrders,
     TEnglishTexts.rejected,
+    TEnglishTexts.finishedOrders,
   ].obs;
 
   void toggleChipSelection(int index, bool isSelected) {

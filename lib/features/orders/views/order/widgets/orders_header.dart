@@ -17,17 +17,19 @@ class OrdersHeader extends StatelessWidget {
       backgroundColor: dark ? TColors.dark : TColors.softGrey,
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: Column(
-        // mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: const Color(0xFF383838))),
-              Switch(value: false, onChanged: (val){})
-            ],
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: const Color(0xFF383838))),
+                Switch(value: true, onChanged: (val){})
+              ],
+            ),
           ),
-          Text(TEnglishTexts.readyToReceiveSubTitle, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070)),)
+          Expanded(child: Text(TEnglishTexts.readyToReceiveSubTitle, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070)),))
         ],
       ),
 

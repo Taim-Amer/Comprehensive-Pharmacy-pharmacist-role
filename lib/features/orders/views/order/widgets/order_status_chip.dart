@@ -43,7 +43,7 @@ class _OrderStatusChipState extends State<OrderStatusChip> {
     final dark = THelperFunctions.isDarkMode(context);
 
     return TRoundedContainer(
-      width: 89.w,
+      // width: 89.w,
       // height: 28.h,
       radius: 6.r,
       backgroundColor: isSelected ? TColors.primary : const Color(0xFFF5F5F5),
