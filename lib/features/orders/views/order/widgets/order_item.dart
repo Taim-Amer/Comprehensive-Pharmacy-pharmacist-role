@@ -11,11 +11,12 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key});
+  const OrderItem({super.key, this.showViewButton = true});
+
+  final bool showViewButton;
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: EdgeInsets.symmetric(
         horizontal: TSizes.defaultSpace.w,
@@ -78,10 +79,10 @@ class OrderItem extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            showViewButton ? SizedBox(
               height: 36.h,
               child: ElevatedButton(onPressed: (){}, child: Text(TEnglishTexts.viewOrders)),
-            )
+            ) : const SizedBox(),
           ],
         ),
       ),

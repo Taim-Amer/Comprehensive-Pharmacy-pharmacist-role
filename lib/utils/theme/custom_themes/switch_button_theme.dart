@@ -18,7 +18,7 @@ class TSwitchButtonTheme{
     ),
     trackColor: WidgetStateProperty.resolveWith<Color>((Set<WidgetState> states) {
         if (states.contains(WidgetState.selected)) {
-          return const Color(0xFF009B3C);
+          return TColors.primary;
         }
         return Colors.grey.withOpacity(0.2);
       },
