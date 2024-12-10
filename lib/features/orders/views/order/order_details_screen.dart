@@ -6,6 +6,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_details_page_view.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/page_view_indicator.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/photo_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
@@ -36,40 +37,9 @@ class OrderDetailsScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // const OrderDetailsPageView(),
           const OrderItem(showViewButton: false),
           TSizes.spaceBtwItems.verticalSpace,
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: TSizes.defaultSpace),
-            child: TRoundedContainer(
-              showBorder: true,
-              child: Padding(
-                padding:  const EdgeInsets.all(TSizes.sm),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    TSizes.spaceBtwItems.verticalSpace,
-                    Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w400)),
-                    TSizes.spaceBtwItems.verticalSpace,
-                    TRoundedContainer(
-                      height: 200.h,
-                      backgroundColor: TColors.grey,
-                      child: Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SvgPicture.asset(TImages.camera),
-                            TSizes.sm.verticalSpace,
-                            Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),)
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          const PhotoContainer()
         ],
       ),
     );
