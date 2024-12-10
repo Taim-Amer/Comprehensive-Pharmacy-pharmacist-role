@@ -8,6 +8,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/e
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/floating_action_button_theme.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/outlined_button_theme.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/radio_theme.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/switch_button_theme.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/text_button_theme.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/text_field_theme.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/custom_themes/text_theme.dart';
@@ -36,7 +37,8 @@ class TAppTheme {
     dividerColor: const Color(0xFFF3F3F3).withOpacity(.3),
     canvasColor: TColors.primary,
     drawerTheme: TDrawerTheme.lightDrawerTheme,
-    floatingActionButtonTheme: TFloatingActionButtonTheme.lightFloatingActionTheme
+    floatingActionButtonTheme: TFloatingActionButtonTheme.lightFloatingActionTheme,
+    switchTheme: TSwitchButtonTheme.lightSwitchTheme
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -60,5 +62,6 @@ class TAppTheme {
     canvasColor: TColors.primary,
     drawerTheme: TDrawerTheme.darkDrawerTheme,
     floatingActionButtonTheme: TFloatingActionButtonTheme.darkFloatingActionTheme,
+    switchTheme: TSwitchButtonTheme.darkSwitchTheme
   );
 }

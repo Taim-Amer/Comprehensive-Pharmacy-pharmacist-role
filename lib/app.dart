@@ -1,6 +1,4 @@
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/home_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_screen.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/settings/settings_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/theme/theme.dart';
@@ -8,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-class pharmacyApp extends StatelessWidget {
-  const pharmacyApp({super.key});
+class PharmacyApp extends StatelessWidget {
+  const PharmacyApp({super.key});
 
   @override
   Widget build(BuildContext context) {

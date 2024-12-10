@@ -1,11 +1,10 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class OrdersHeader extends StatelessWidget {
   const OrdersHeader({super.key});
@@ -13,23 +12,25 @@ class OrdersHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
-    return Column(
-      children: [
-        TSizes.md.verticalSpace,
-        Row(
-          children: [
-            SvgPicture.asset(TImages.myOrdersIcon, color: dark ? TColors.light : const Color(0xFF383838),),
-            TSizes.xs.horizontalSpace,
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(TEnglishTexts.myOrders, style: Theme.of(context).textTheme.bodyLarge),
-                Text(TEnglishTexts.previousOrders, style: Theme.of(context).textTheme.labelLarge),
-              ],
-            )
-          ],
-        ),
-      ],
+    return TRoundedContainer(
+      height: 125.h,
+      backgroundColor: dark ? TColors.dark : TColors.softGrey,
+      padding: const EdgeInsets.all(TSizes.defaultSpace),
+      child: Column(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: const Color(0xFF383838))),
+              Switch(value: false, onChanged: (val){})
+            ],
+          ),
+          Text(TEnglishTexts.readyToReceiveSubTitle, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070)),)
+        ],
+      ),
+
     );
   }
 }

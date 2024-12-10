@@ -8,5 +8,5 @@ Future<void> main() async{
 
   await TCacheHelper.init();
 
-  runApp(const pharmacyApp());
+  runApp(const PharmacyApp());
 }

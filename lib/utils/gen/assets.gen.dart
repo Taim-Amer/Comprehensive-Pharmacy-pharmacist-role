@@ -59,8 +59,20 @@ class $AssetsImagesGen {
   /// File path: assets/images/Rectangle 5.svg
   String get rectangle5 => 'assets/images/Rectangle 5.svg';
 
+  /// File path: assets/images/clipboard-close.svg
+  String get clipboardClose => 'assets/images/clipboard-close.svg';
+
   /// File path: assets/images/clipboard-close2.svg
-  String get clipboardClose => 'assets/images/clipboard-close2.svg';
+  String get clipboardClose2 => 'assets/images/clipboard-close2.svg';
+
+  /// File path: assets/images/clipboard-export.svg
+  String get clipboardExport => 'assets/images/clipboard-export.svg';
+
+  /// File path: assets/images/clipboard-text.svg
+  String get clipboardText => 'assets/images/clipboard-text.svg';
+
+  /// File path: assets/images/clipboard-tick.svg
+  String get clipboardTick => 'assets/images/clipboard-tick.svg';
 
   /// File path: assets/images/f7_camera-fill.svg
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
@@ -73,6 +85,10 @@ class $AssetsImagesGen {
         group39446,
         rectangle5,
         clipboardClose,
+        clipboardClose2,
+        clipboardExport,
+        clipboardText,
+        clipboardTick,
         f7CameraFill
       ];
 }

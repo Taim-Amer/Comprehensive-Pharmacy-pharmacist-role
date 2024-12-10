@@ -34,7 +34,7 @@ class OrderScreen extends StatelessWidget {
                 SliverAppBar(
                   pinned: true,
                   floating: true,
-                  expandedHeight: 150.h,
+                  expandedHeight: 200.h,
                   automaticallyImplyLeading: false,
                   flexibleSpace: Padding(
                     padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
