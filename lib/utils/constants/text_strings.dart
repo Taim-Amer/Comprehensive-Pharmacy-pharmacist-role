@@ -57,6 +57,23 @@ class TArabicTexts {
   static String get orderDate => '';
   static String get orderDetails => '';
   static String get prescriptionPhoto => '';
+  static String get readyToReceiveTitle => '';
+  static String get readyToReceiveSubTitle => '';
+  static String get newOrders => '';
+  static String get currentOrders => '';
+  static String get rejectedOrders => '';
+  static String get finishedOrders => '';
+  static String get viewOrders => '';
+  static String get customerName => '';
+  static String get orderNo => '';
+  static String get newOrdersEmptyTitle => '';
+  static String get newOrdersEmptySubTitle => '';
+  static String get currentOrdersEmptySubTitle => '';
+  static String get currentOrdersEmptyTitle => '';
+  static String get rejectedOrdersEmptyTitle => '';
+  static String get rejectedOrdersEmptySubTitle => '';
+  static String get finishedOrdersEmptySubTitle => '';
+  static String get finishedOrdersEmptyTitle => '';
 
   // Home
   static String get homeTitle => '';
