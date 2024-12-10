@@ -20,6 +20,10 @@ class TImages {
   static const String delivery = 'assets/icons/box-tick.svg';
   static const String processing = 'assets/icons/box-time.svg';
   static const String onTheWay = 'assets/icons/truck-fast.svg';
+  static const String newOrderEmpty = 'assets/images/clipboard-export.svg';
+  static const String currentOrderEmpty = 'assets/images/clipboard-export.svg';
+  static const String rejectedOrderEmpty = 'assets/images/clipboard-close2.svg';
+  static const String finishedOrderEmpty = 'assets/images/clipboard-tick.svg';
 
   // Home
   static const String uploadIcon = 'assets/icons/Upload icon.svg';

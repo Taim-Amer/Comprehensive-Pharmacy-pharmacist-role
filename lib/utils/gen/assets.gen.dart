@@ -59,8 +59,8 @@ class $AssetsImagesGen {
   /// File path: assets/images/Rectangle 5.svg
   String get rectangle5 => 'assets/images/Rectangle 5.svg';
 
-  /// File path: assets/images/clipboard-close.svg
-  String get clipboardClose => 'assets/images/clipboard-close.svg';
+  /// File path: assets/images/clipboard-close2.svg
+  String get clipboardClose => 'assets/images/clipboard-close2.svg';
 
   /// File path: assets/images/f7_camera-fill.svg
   String get f7CameraFill => 'assets/images/f7_camera-fill.svg';
