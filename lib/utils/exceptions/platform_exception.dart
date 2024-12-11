@@ -1,4 +1,3 @@
-
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/exceptions/failures.dart';
 
 class TPlatformException extends Failure {

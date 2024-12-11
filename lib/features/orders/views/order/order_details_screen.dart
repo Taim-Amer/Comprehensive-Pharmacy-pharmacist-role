@@ -1,21 +1,13 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/note_container.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_description_column.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_details_page_view.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/page_view_indicator.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/photo_container.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
@@ -26,7 +18,6 @@ class OrderDetailsScreen extends StatelessWidget {
     Get.put(OrdersController());
     return Scaffold(
       appBar: TAppBar(
-        // showBackArrow: true,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -42,7 +33,9 @@ class OrderDetailsScreen extends StatelessWidget {
           TSizes.spaceBtwItems.verticalSpace,
           const PhotoContainer(),
           TSizes.spaceBtwItems.verticalSpace,
-          const NoteContainer()
+          const NoteContainer(),
+          TSizes.spaceBtwItems.verticalSpace,
+          
         ],
       ),
     );

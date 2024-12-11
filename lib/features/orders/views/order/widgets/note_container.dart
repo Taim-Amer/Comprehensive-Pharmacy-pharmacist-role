@@ -16,6 +16,7 @@ class NoteContainer extends StatelessWidget {
       child: TRoundedContainer(
         showBorder: true,
         padding: EdgeInsets.all(TSizes.md.w),
+        backgroundColor: Colors.transparent,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
