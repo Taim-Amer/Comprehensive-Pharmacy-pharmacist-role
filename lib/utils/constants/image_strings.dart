@@ -69,4 +69,7 @@ class TImages {
   // pharmacy Profile
   static const String down = "assets/icons/global/Down.svg";
   static const String up = "assets/icons/global/Up.svg";
+
+  // Global
+  static const String noConnection = 'assets/images/NoConnection.svg';
 }

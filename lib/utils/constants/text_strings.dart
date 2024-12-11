@@ -1,11 +1,15 @@
 class TArabicTexts {
   TArabicTexts._();
+
   // Global Texts
   static String get next => 'التالي';
   static String get add => 'إضافة';
   static String get addAnotherPhone => 'إضافة هاتف آخر';
   static String get tcontinue => 'متابعة';
   static String get errorMessage => 'حدث خطأ، يرجى المحاولة مرة أخرى';
+  static String get noInternetTitle => '';
+  static String get noInternetSubTitle => '';
+  static String get retry => '';
 
   // Authentication Form Text
   static String get loginTitle => '';
@@ -148,6 +152,9 @@ class TEnglishTexts {
   static String get addAnotherPhone => 'Add Another Phone';
   static String get tcontinue => 'Continue';
   static String get errorMessage => 'An error occurred, please try again';
+  static String get noInternetTitle => 'No internet connection !';
+  static String get noInternetSubTitle => 'Please check your internet connection and try again.';
+  static String get retry => 'Retry';
 
   // Authentication Form Text
   static String get loginTitle => 'Login';
