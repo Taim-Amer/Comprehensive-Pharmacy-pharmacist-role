@@ -1,9 +1,12 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/confirm_order_button.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/location_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/note_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/photo_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/reject_order_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +38,19 @@ class OrderDetailsScreen extends StatelessWidget {
           TSizes.spaceBtwItems.verticalSpace,
           const NoteContainer(),
           TSizes.spaceBtwItems.verticalSpace,
-          
+          const LocationContainer(),
+          const Spacer(),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
+            child: Column(
+              children: [
+                const ConfirmOrderButton(),
+                TSizes.spaceBtwItems.verticalSpace,
+                const RejectOrderButton(),
+              ],
+            ),
+          ),
+          TSizes.spaceBtwItems.verticalSpace,
         ],
       ),
     );

@@ -24,18 +24,18 @@ class LocationContainer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(Iconsax.edit, size: 20, color: Color(0xFF383838)),
+                const Icon(Iconsax.location, size: 16, color: Color(0xFF383838)),
                 TSizes.xs.horizontalSpace,
                 Text(TEnglishTexts.locationCustomer, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 14))
               ],
             ),
-            TSizes.xs.verticalSpace,
+            // TSizes.xs.verticalSpace,
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                const Icon(Iconsax.edit, size: 20, color: Colors.transparent),
+                const Icon(Iconsax.location, size: 20, color: Colors.transparent),
                 TSizes.xs.horizontalSpace,
-                Text(TEnglishTexts.locationCustomer, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 12))
+                Text('Damascus_mazzeh street', style: Theme.of(context).textTheme.labelLarge?.copyWith(fontSize: 12))
               ],
             ),
           ],
