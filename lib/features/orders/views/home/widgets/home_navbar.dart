@@ -1,4 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/home_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/no_internet_connection_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/searching_pharmacy_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +20,7 @@ class HomeNavbar extends StatelessWidget {
         child: Obx(() {
           bool isEnabled = HomeController.instance.isCreateButtonEnabled.value;
           return ElevatedButton(
-            onPressed: isEnabled ? () {} : null,
+            onPressed: isEnabled ? () => Get.to(SearchingPharmacyScreen()) : null,
             style: ElevatedButton.styleFrom(
               backgroundColor: isEnabled
                   ? Theme.of(context).primaryColor

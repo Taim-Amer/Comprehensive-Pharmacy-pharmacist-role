@@ -1,9 +1,11 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/icons/circular_icon.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/profile_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class TDrawerHeader extends StatelessWidget {
@@ -21,6 +23,7 @@ class TDrawerHeader extends StatelessWidget {
           backgroundColor: TColors.primary,
           width: 38.w,
           height: 38.h,
+          onPressed: () => Get.to(ProfileScreen()),
         ),
         TSizes.sm.horizontalSpace,
         TRoundedContainer(

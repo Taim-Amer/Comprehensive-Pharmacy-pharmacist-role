@@ -12,6 +12,7 @@ class TImages {
   static const String loginShape = "assets/images/shapes/Group.svg";
   static const String logout = "assets/logos/auth/Group.svg";
   static const String passwordConfirmed = "assets/images/Done.svg";
+  static const String camera1 = "assets/icons/f7_camera-fill.svg";
 
   // Orders
   static const String emptyOrders = 'assets/images/clipboard-close.svg';

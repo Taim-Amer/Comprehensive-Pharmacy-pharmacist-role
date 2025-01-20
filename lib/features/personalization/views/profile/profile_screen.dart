@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appba
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signin_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signin/widgets/phone_country_code.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/general_drawer.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/profile/widgets/profile_form.dart';
@@ -25,7 +26,8 @@ class ProfileScreen extends StatelessWidget {
     Get.put(SigninController());
     return Scaffold(
       drawer: const GeneralDrawer(),
-      appBar: const TAppBar(title: ProfileAppbar()),
+      // appBar: const TAppBar(title: ProfileAppbar()),
+      appBar: TAppBar(title: GeneralAppbar(),),
       body: Padding(
         padding:TSpacingStyle.paddingWithAppBarHeight,
         child: SingleChildScrollView(

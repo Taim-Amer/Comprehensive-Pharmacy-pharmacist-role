@@ -15,7 +15,7 @@ class NoInternetConnectionScreen extends StatelessWidget {
       subTitle: TEnglishTexts.noInternetSubTitle,
       showButton: true,
       buttonString: TEnglishTexts.retry,
-      function: () => Get.back(),
+      function: () {return Get.back();}
     );
   }
 }

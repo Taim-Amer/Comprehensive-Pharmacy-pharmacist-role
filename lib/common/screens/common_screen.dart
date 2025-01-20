@@ -1,4 +1,3 @@
-import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +17,7 @@ class CommonScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: TSpacingStyle.paddingWithAppBarHeight,
+        padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -31,7 +30,7 @@ class CommonScreen extends StatelessWidget {
               width: double.infinity,
               height: 50.h,
               child: ElevatedButton(
-                onPressed: () => function,
+                onPressed: function ?? (){},
                 child: Text(buttonString),
               ),
             ) : const SizedBox()

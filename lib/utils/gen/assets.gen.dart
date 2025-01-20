@@ -27,6 +27,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/edit.svg
   String get edit => 'assets/icons/edit.svg';
 
+  /// File path: assets/icons/f7_camera-fill.svg
+  String get f7CameraFill => 'assets/icons/f7_camera-fill.svg';
+
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
@@ -37,8 +40,16 @@ class $AssetsIconsGen {
   String get truckFast => 'assets/icons/truck-fast.svg';
 
   /// List of all assets
-  List<String> get values =>
-      [uploadIcon, boxTick, boxTime, clipboardTick, edit, trash, truckFast];
+  List<String> get values => [
+        uploadIcon,
+        boxTick,
+        boxTime,
+        clipboardTick,
+        edit,
+        f7CameraFill,
+        trash,
+        truckFast
+      ];
 }
 
 class $AssetsImagesGen {
@@ -55,6 +66,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/Group 39446.svg
   String get group39446 => 'assets/images/Group 39446.svg';
+
+  /// File path: assets/images/NoConnection.svg
+  String get noConnection => 'assets/images/NoConnection.svg';
 
   /// File path: assets/images/Rectangle 5.svg
   String get rectangle5 => 'assets/images/Rectangle 5.svg';
@@ -83,6 +97,7 @@ class $AssetsImagesGen {
         frame39428,
         group11,
         group39446,
+        noConnection,
         rectangle5,
         clipboardClose,
         clipboardClose2,

@@ -31,6 +31,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put(SigninController());
     final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
@@ -68,7 +69,7 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                     8.horizontalSpace,
                     Expanded(
                       child: TextFormField(
-                        validator: (value) => TValidator.validatePhoneNumber(value),
+                        // validator: (value) => TValidator.validatePhoneNumber(value),
                         enableInteractiveSelection: false,
                         // controller: SigninController.instance.phoneController,
                         decoration: InputDecoration(
