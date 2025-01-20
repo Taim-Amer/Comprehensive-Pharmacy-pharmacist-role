@@ -16,6 +16,8 @@ class OrdersHeader extends StatelessWidget {
       height: 125.h,
       backgroundColor: dark ? TColors.dark : TColors.softGrey,
       padding: const EdgeInsets.all(TSizes.defaultSpace),
+      borderColor: TColors.primary,
+      showBorder: true,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.start,

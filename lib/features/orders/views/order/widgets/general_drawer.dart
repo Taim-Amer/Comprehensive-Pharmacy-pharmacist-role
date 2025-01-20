@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class GeneralDrawer extends StatelessWidget {
-  const GeneralDrawer({super.key});
+  const   GeneralDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

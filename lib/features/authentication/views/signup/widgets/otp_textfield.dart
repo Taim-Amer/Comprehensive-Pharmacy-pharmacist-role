@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 class OtpTextFieldWidget extends StatelessWidget {
-  const OtpTextFieldWidget({super.key});
+  const OtpTextFieldWidget({super.key, required this.controller});
 
-  // final TextEditingController controller;
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class OtpTextFieldWidget extends StatelessWidget {
       onCodeChanged: (String code) {
       },
       onSubmit: (String code) {
-        // controller.text = code;
+        controller.text = code;
       },
     );
   }

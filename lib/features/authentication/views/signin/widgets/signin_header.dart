@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -28,9 +29,9 @@ class SigninHeader extends StatelessWidget {
           ),
         ),
         TSizes.spaceBtwSections.verticalSpace,
-        Text(TEnglishTexts.loginTitle, style: Theme.of(context).textTheme.headlineMedium),
+        Text(TranslationKey.kLoginTitle, style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
-        Text(TEnglishTexts.loginSubTitle, style: Theme.of(context).textTheme.labelLarge),
+        Text(TranslationKey.kLoginSubTitle, style: Theme.of(context).textTheme.labelLarge),
       ],
     );
   }

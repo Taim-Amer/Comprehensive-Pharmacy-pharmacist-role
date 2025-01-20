@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 
@@ -9,8 +10,8 @@ class OtpFooter extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(TEnglishTexts.otpQuastion),
-          TextButton(onPressed: (){}, child: Text(TEnglishTexts.resend))
+          Text(TranslationKey.kOtpQuestion),
+          TextButton(onPressed: (){}, child: Text(TranslationKey.kResend))
         ],
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,9 @@ class SignupHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(TEnglishTexts.registerTitle, style: Theme.of(context).textTheme.headlineMedium),
+        Text(TranslationKey.kRegisterTitle, style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
-        Text(TEnglishTexts.registerSubTitle, style: Theme.of(context).textTheme.labelLarge),
+        Text(TranslationKey.kRegisterSubTitle, style: Theme.of(context).textTheme.labelLarge),
       ],
     );
   }

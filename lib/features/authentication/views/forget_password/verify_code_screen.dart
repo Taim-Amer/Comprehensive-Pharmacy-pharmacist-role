@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/forget_password_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/verify_code_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/verify_code_footer.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/verify_code_header.dart';
@@ -23,7 +24,7 @@ class VerifyCodeScreen extends StatelessWidget {
             children: [
               const VerifyCodeHeader(),
               TSizes.spaceBtwSections.verticalSpace,
-              const OtpTextFieldWidget(),
+              OtpTextFieldWidget(controller: ForgetPasswordController.instance.otpController),
               TSizes.spaceBtwSections.verticalSpace,
               const VerifyCodeButton(),
               TSizes.spaceBtwSections.verticalSpace,

@@ -36,7 +36,7 @@ class SigninController extends GetxController{
         THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.success);
         showSnackBar(response.message ?? '', AlertState.success);
         TCacheHelper.saveData(key: 'token', value: response.data!.token);
-        Get.offAllNamed(AppRoutes.order);
+        // Get.offAllNamed(AppRoutes.order);
       } else{
         THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.error);

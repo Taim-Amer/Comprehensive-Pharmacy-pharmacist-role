@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -94,6 +95,10 @@ class THelperFunctions {
 
   static List<T> removeDuplicates<T>(List<T> list){
     return list.toSet().toList();
+  }
+
+  static void updateApiStatus({required Rx<RequestState> target, required RequestState value}){
+    target.value = value;
   }
 
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize){

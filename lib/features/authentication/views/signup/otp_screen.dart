@@ -1,6 +1,8 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back_icon.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/otp_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signup_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_footer.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/otp_header.dart';
@@ -15,7 +17,7 @@ class OtpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(title: BackIcon()),
+      appBar: const TAppBar(),
       body: SingleChildScrollView(
         child: Padding(
           padding: TSpacingStyle.paddingWithAppBarHeight,
@@ -24,7 +26,7 @@ class OtpScreen extends StatelessWidget {
             children: [
               const OtpHeader(),
               TSizes.spaceBtwSections.verticalSpace,
-              const OtpTextFieldWidget(),
+              OtpTextFieldWidget(controller: OtpController.instance.otpController),
               TSizes.spaceBtwSections.verticalSpace,
               const OtpButton(),
               TSizes.spaceBtwSections.verticalSpace,

@@ -24,7 +24,7 @@ class OtpController extends GetxController{
     ).then((response) {
       if(response.status == true){
         TCacheHelper.saveData(key: 'token', value: response.token);
-        Get.offAllNamed(AppRoutes.order);
+        // Get.offAllNamed(AppRoutes.order);
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: verifyApiStatus, value: RequestState.success);
       }else{

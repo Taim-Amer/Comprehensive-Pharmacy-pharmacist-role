@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -11,9 +12,9 @@ class OtpHeader extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(TEnglishTexts.otpTitle, style: Theme.of(context).textTheme.headlineMedium),
+        Text(TranslationKey.kOtpTitle, style: Theme.of(context).textTheme.headlineMedium),
         TSizes.sm.verticalSpace,
-        Text(TEnglishTexts.otpSubTitle, style: Theme.of(context).textTheme.labelLarge),
+        Text(TranslationKey.kOtpSubTitle, style: Theme.of(context).textTheme.labelLarge),
       ],
     );
   }

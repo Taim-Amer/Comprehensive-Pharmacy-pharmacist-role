@@ -1,4 +1,3 @@
-import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signin_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -13,25 +12,29 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:measure_size_builder/measure_size_builder.dart';
 
-class PhoneCountryCode extends StatefulWidget {
-  const PhoneCountryCode({super.key});
+class PhoneCountryCode<T extends GetxController> extends StatefulWidget {
+  final T controller;
+
+  const PhoneCountryCode({
+    super.key,
+    required this.controller,
+  });
 
   @override
-  State<PhoneCountryCode> createState() => _CustomPhoneCountryCodeState();
+  State<PhoneCountryCode<T>> createState() => _PhoneCountryCodeState<T>();
 }
 
-class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
+class _PhoneCountryCodeState<T extends GetxController> extends State<PhoneCountryCode<T>> {
   double height = 0;
   bool isExpanded = false;
 
-  final List<GlobalModel> countries = [
-    GlobalModel(code: "+963", title: "الاردن", svg: TImages.jordan),
-    GlobalModel(code: '+966', title: 'العراق', svg: TImages.saudi),
+  List<GlobalModel> countries = [
+    GlobalModel(code: "+963", title: "سوريا", svg: TImages.jordan),
+    GlobalModel(code: "+966", title: "السعودية", svg: TImages.saudi),
   ];
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SigninController());
     final dark = THelperFunctions.isDarkMode(context);
     return Column(
       children: [
@@ -52,14 +55,14 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
               textDirection: TextDirection.ltr,
               child: Obx(() {
                 final selectedCountry = countries.firstWhere(
-                      (country) => country.code == SigninController.instance.countryCode.value,
+                      (country) => (widget.controller as dynamic).countryCode.value == country.code,
                   orElse: () => countries.first,
                 );
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     10.horizontalSpace,
-                    const Icon(Iconsax.mobile, size: 20, color: Color(0xFF707070),),
+                    const Icon(Iconsax.mobile, size: 20, color: Color(0xFF707070)),
                     8.horizontalSpace,
                     Container(height: 20.h, width: 1, color: dark ? TColors.lightGrey : Colors.black),
                     8.horizontalSpace,
@@ -71,25 +74,32 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
                       child: TextFormField(
                         // validator: (value) => TValidator.validatePhoneNumber(value),
                         enableInteractiveSelection: false,
-                        // controller: SigninController.instance.phoneController,
+                        controller: (widget.controller as dynamic).phoneController,
                         decoration: InputDecoration(
                           hintText: TEnglishTexts.phoneNumber,
-                          hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070), fontSize: 14, fontWeight: FontWeight.w400),
+                          hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
+                              color: const Color(0xFF707070),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w400),
                           contentPadding: EdgeInsets.symmetric(vertical: 8.h, horizontal: 15.w),
                           border: InputBorder.none,
                         ),
                         cursorColor: TColors.buttonPrimary,
                         keyboardType: TextInputType.phone,
                         onChanged: (value) {
-                          // if (!value.startsWith(selectedCountry.code!)) {
-                          //   SigninController.instance.phoneController.text = selectedCountry.code! + value;
-                          //   SigninController.instance.phoneController.selection = TextSelection.fromPosition(TextPosition(offset: SignInController.instance.phoneController.text.length));
-                          // }
+                          final phoneController = (widget.controller as dynamic).phoneController;
+                          if (!value.startsWith(selectedCountry.code as Pattern)) {
+                            phoneController.text = selectedCountry.code! + value;
+                            phoneController.selection = TextSelection.fromPosition(
+                              TextPosition(offset: phoneController.text.length),
+                            );
+                          }
                         },
                       ),
                     ),
                     16.horizontalSpace,
-                    Icon(Icons.keyboard_arrow_down, color: dark ? TColors.lightGrey : const Color(0xFF707070), size: 22),
+                    Icon(Icons.keyboard_arrow_down,
+                        color: dark ? TColors.lightGrey : const Color(0xFF707070), size: 22),
                     10.horizontalSpace,
                   ],
                 );
@@ -127,12 +137,12 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
   }
 
   Widget countryCodeItemBuilder(int index) {
+    final country = countries[index];
     return GestureDetector(
-      // overlayColor: WidgetStateProperty.all(Colors.transparent),
       onTap: () {
         setState(() {
           isExpanded = !isExpanded;
-          SigninController.instance.countryCode.value = countries[index].code!;
+          (widget.controller as dynamic).countryCode.value = country.code!;
         });
       },
       child: Padding(
@@ -140,19 +150,19 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
         child: Row(
           children: [
             16.horizontalSpace,
-            Image.asset(countries[index].svg!, height: 24.h, width: 24.w),
+            Image.asset(country.svg!, height: 24.h, width: 24.w),
             16.horizontalSpace,
-            Text(countries[index].title),
+            Text(country.title),
             8.horizontalSpace,
-            Text('(${countries[index].code})', textDirection: TextDirection.ltr),
+            Text('(${country.code})', textDirection: TextDirection.ltr),
             const Spacer(),
             Radio<String>(
-              value: countries[index].code!,
-              groupValue: SigninController.instance.countryCode.value,
+              value: country.code!,
+              groupValue: (widget.controller as dynamic).countryCode.value,
               activeColor: TColors.buttonPrimary,
               onChanged: (value) {
                 setState(() {
-                  SigninController.instance.countryCode.value = value!;
+                  (widget.controller as dynamic).countryCode.value = value!;
                   isExpanded = false;
                   TCacheHelper.saveData(key: "code", value: value);
                 });
@@ -165,3 +175,4 @@ class _CustomPhoneCountryCodeState extends State<PhoneCountryCode> {
     );
   }
 }
+

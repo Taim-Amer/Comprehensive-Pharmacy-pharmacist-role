@@ -4,8 +4,9 @@ import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/new_password_form.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/new_password_header.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/forget_password/widgets/update_password_button.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class NewPasswordScreen extends StatelessWidget {
   const NewPasswordScreen({super.key});
