@@ -42,6 +42,8 @@ class TArabicTexts {
   static String get updatePassword => '';
   static String get resetSuccess => '';
   static String get resetSuccessSubTitle => '';
+  static String get pharmacistName => '';
+  static String get pharmacyName => '';
 
   // Orders
   static String get myOrders => '';
@@ -58,7 +60,6 @@ class TArabicTexts {
   static String get canceled => '';
   static String get rejected => '';
   static String get orderID => '';
-  static String get pharmacyName => '';
   static String get orderDate => '';
   static String get orderDetails => '';
   static String get prescriptionPhoto => '';
@@ -187,6 +188,8 @@ class TEnglishTexts {
   static String get updatePassword => 'Update password';
   static String get resetSuccess => 'Password reset successful!';
   static String get resetSuccessSubTitle => 'Your new password is ready to use. Log in and regain access to your account seamlessly!';
+  static String get pharmacistName => 'Pharmacist name';
+  static String get pharmacyName => 'Pharmacy Name';
 
   // Orders
   static String get myOrders => 'My orders';
@@ -203,7 +206,6 @@ class TEnglishTexts {
   static String get canceled => 'Canceled';
   static String get rejected => 'Rejected';
   static String get orderID => 'Order ID : #2345213';
-  static String get pharmacyName => 'Pharmacy name';
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';
   static String get prescriptionPhoto => 'Prescription photo';

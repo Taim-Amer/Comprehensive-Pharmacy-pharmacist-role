@@ -16,7 +16,8 @@ class SignupController extends GetxController{
 
   Rx<RequestState> signupApiStatus = RequestState.begin.obs;
 
-  final usernameController = TextEditingController();
+  final pharmacistNameController = TextEditingController();
+  final pharmacyNameController = TextEditingController();
   final emailController = TextEditingController();
   final phoneController = TextEditingController();
   final passwordController = TextEditingController();
@@ -31,7 +32,8 @@ class SignupController extends GetxController{
       return;
     }
     await SignupRepoImpl.instance.signup(
-      name: usernameController.text,
+      name: pharmacistNameController.text,
+      pharmacyName: pharmacyNameController.text,
       email: emailController.text.trim(),
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),
@@ -42,7 +44,6 @@ class SignupController extends GetxController{
     ).then((response) async{
       if(response.status == true){
         await TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? '');
-        print(TCacheHelper.saveData(key: 'phone', value: response.user?.phone.toString() ?? ''));
         showSnackBar(response.message ?? "", AlertState.success);
         THelperFunctions.updateApiStatus(target: signupApiStatus, value: RequestState.success);
         Get.toNamed(AppRoutes.otp);

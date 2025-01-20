@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/rep
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -36,12 +37,13 @@ class SigninController extends GetxController{
         THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.success);
         showSnackBar(response.message ?? '', AlertState.success);
         TCacheHelper.saveData(key: 'token', value: response.data!.token);
-        // Get.offAllNamed(AppRoutes.order);
+        Get.offAllNamed(AppRoutes.order);
       } else{
         THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.error);
       }
     }).catchError((error){
+      TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: signinApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });

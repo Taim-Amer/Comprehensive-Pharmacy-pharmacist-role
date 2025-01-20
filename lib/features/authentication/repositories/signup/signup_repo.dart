@@ -5,6 +5,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/mod
 abstract class SignupRepo {
   Future<SignupModel> signup({
     required String name,
+    required String pharmacyName,
     required String email,
     required String phone,
     required String password,

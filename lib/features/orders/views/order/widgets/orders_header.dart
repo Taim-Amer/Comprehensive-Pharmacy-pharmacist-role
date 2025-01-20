@@ -26,7 +26,7 @@ class OrdersHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: const Color(0xFF383838))),
+                Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
                 Switch(value: true, onChanged: (val){})
               ],
             ),

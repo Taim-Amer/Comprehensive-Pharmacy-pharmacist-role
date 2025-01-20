@@ -19,13 +19,24 @@ class SignupForm extends StatelessWidget {
       child: Column(
         children: [
           TextFormField(
-            controller: SignupController.instance.usernameController,
-            validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kUserName}", value),
+            controller: SignupController.instance.pharmacistNameController,
+            validator: (value) => TValidator.validateEmptyText(" ${TEnglishTexts.pharmacistName}", value),
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TranslationKey.kUserName,
+                hintText: TEnglishTexts.pharmacistName,
                 prefixIcon: const Icon(Iconsax.user),
+            ),
+          ),
+          TSizes.spaceBtwInputField.verticalSpace,
+          TextFormField(
+            controller: SignupController.instance.pharmacyNameController,
+            validator: (value) => TValidator.validateEmptyText(" ${TEnglishTexts.pharmacyName}", value),
+            enableInteractiveSelection: false,
+            cursorColor: TColors.primary,
+            decoration: InputDecoration(
+              hintText: TEnglishTexts.pharmacyName,
+              prefixIcon: const Icon(Iconsax.user),
             ),
           ),
           TSizes.spaceBtwInputField.verticalSpace,

@@ -3,7 +3,7 @@ class TApiConstants {
 
   static const String baseUrl = 'https://pharmacy.technoplus.dev/api/';
 
-  static const String register = 'client/register';
+  static const String register = 'pharmacists/register';
 
   static const String verify = 'otp/verify';
 
@@ -15,5 +15,15 @@ class TApiConstants {
 
   static const String forgetReset = 'resetPassword';
 
-  static const String signin = 'client/login';
+  static const String signin = 'pharmacist/login';
+
+  static const String change = 'pharmacists/toggle-status';
+
+  static const String confirm = 'order/confirm';
+
+  static const String reject = 'order/reject';
+
+  static const String getOrders = 'pharmacist/orders';
+
+  static const String showOrder = 'orders';
 }

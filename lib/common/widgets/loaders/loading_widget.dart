@@ -9,6 +9,9 @@ class LoadingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LoadingAnimationWidget.waveDots(color: TColors.buttonPrimary, size: 70);
+    return LoadingAnimationWidget.staggeredDotsWave(
+      color: TColors.primary,
+      size: 50,
+    );
   }
 }

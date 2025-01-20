@@ -31,7 +31,8 @@ class FilesList extends StatelessWidget {
             child: ListView.separated(
               itemCount: files.length,
               itemBuilder: (context, index) {
-                return FileItem(fileName: files[index].path.split('/').last);
+                // return FileItem(fileName: files[index].path.split('/').last);
+                return SizedBox();
               },
               separatorBuilder: (context, _) => TSizes.spaceBtwItems.verticalSpace,
             ),
