@@ -1,10 +1,10 @@
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_password_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_verify_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/resend_otp_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/reset_password_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/forget_password/forget_password_repo.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/forget_password_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/forget_verify_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/resend_otp_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/reset_password_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/repositories/forget_password/forget_password_repo.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/api/dio_helper.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:get/get.dart';
 
 class ForgetPasswordRepoImpl implements ForgetPasswordRepo{

@@ -1,9 +1,9 @@
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/code_verification_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/resend_otp_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/signup_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/signup/signup_repo.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/code_verification_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/resend_otp_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/signup_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/repositories/signup/signup_repo.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/api/dio_helper.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:get/get.dart';
 
 class SignupRepoImpl implements SignupRepo {

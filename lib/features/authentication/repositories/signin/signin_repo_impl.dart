@@ -1,7 +1,7 @@
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/signin_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/repositories/signin/signin_repo.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/api/dio_helper.dart';
-import 'package:comprehensive_pharmacy_client_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/signin_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/repositories/signin/signin_repo.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/api/dio_helper.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:get/get.dart';
 
 class SigninRepoImpl implements SigninRepo{

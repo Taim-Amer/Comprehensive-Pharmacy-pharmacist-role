@@ -1,7 +1,7 @@
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_password_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/forget_verify_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/resend_otp_model.dart';
-import 'package:comprehensive_pharmacy_client_role/features/authentication/models/reset_password_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/forget_password_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/forget_verify_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/resend_otp_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/models/reset_password_model.dart';
 
 abstract class ForgetPasswordRepo{
   Future<ForgetPasswordModel> forgetPassword({required String phone});
