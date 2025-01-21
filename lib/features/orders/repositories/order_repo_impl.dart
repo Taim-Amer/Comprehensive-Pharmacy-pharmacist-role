@@ -1,11 +1,11 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/change_ready_status_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/confirm_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_details_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/reject_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/api/dio_helper.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:get/get.dart';
 
@@ -36,7 +36,7 @@ class OrderRepoImpl implements OrderRepo{
   }
 
   @override
-  Future<void> showOrder({required int orderID}) async{
-    return await dioHelper.get("${TApiConstants.showOrder}/$orderID", token: token).then((response) => TLoggerHelper.warning(response.values.first));
+  Future<OrderDetailsModel> showOrder({required int orderID}) async{
+    return await dioHelper.post(TApiConstants.showOrder, {'order_id' : orderID}, token: token).then((response) => OrderDetailsModel.fromJson(response));
   }
 }

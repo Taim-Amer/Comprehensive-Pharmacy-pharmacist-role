@@ -25,5 +25,5 @@ class TApiConstants {
 
   static const String getOrders = 'pharmacist/orders';
 
-  static const String showOrder = 'orders';
+  static const String showOrder = 'order/show';
 }

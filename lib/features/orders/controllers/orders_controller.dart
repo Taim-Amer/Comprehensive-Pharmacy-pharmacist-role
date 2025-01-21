@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/alerts/snackbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/change_ready_status_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_details_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
@@ -19,9 +20,11 @@ class OrdersController extends GetxController {
 
   Rx<RequestState> getMyOrdersApiStatus = RequestState.begin.obs;
   Rx<RequestState> changeReadyApiStatus = RequestState.begin.obs;
+  Rx<RequestState> orderDetailsApiStatus = RequestState.begin.obs;
 
   final myOrdersModel = MyOrdersModel().obs;
   final changeReadyModel = ChangeReadyStatusModel().obs;
+  final orderDetailsModel = OrderDetailsModel().obs;
 
 
   var selectedChips = <bool>[true, false, false, false].obs;
@@ -105,5 +108,22 @@ class OrdersController extends GetxController {
       showSnackBar(TranslationKey.kErrorMessage, AlertState.warning);
     });
     return readyStatus.value;
+  }
+
+  Future<void> showOrder({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.showOrder(orderID: orderID).then((response){
+      if(response.status == true){
+        orderDetailsModel.value = response;
+        THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
   }
 }

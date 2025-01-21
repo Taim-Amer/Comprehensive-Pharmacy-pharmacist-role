@@ -11,14 +11,13 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart'
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Get.put(OrdersController());
+    var orderDetails = OrdersController.instance.orderDetailsModel.value.data!;
     return Scaffold(
       appBar: TAppBar(
         title: Row(
@@ -32,8 +31,14 @@ class OrderDetailsScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          // const OrderItem(showViewButton: false),
-          // TSizes.spaceBtwItems.verticalSpace,
+          OrderItem(
+            orderID: orderDetails.id!,
+            orderDate: orderDetails.createdAt!,
+            orderStatus: orderDetails.status!,
+            customerName: orderDetails.customer?.name ?? '',
+            phoneNumber: orderDetails.customer?.phone ?? '',
+          ),
+          TSizes.spaceBtwItems.verticalSpace,
           const PhotoContainer(),
           TSizes.spaceBtwItems.verticalSpace,
           const NoteContainer(),
