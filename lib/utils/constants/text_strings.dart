@@ -211,6 +211,7 @@ class TEnglishTexts {
   static String get onTheWay => "On the way";
   static String get orderID => 'Order ID : #2345213';
   static String get orderDate => 'Order date';
+  static String get finalPrice => 'Final price';
   static String get orderDetails => 'Order Details';
   static String get prescriptionPhoto => 'Prescription photo';
   static String get readyToReceiveTitle => 'Ready to receive orders';

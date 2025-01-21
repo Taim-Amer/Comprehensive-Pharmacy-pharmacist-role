@@ -26,7 +26,7 @@ class OrderItem extends StatelessWidget {
         vertical: TSizes.spaceBtwItems.h,
       ),
       child: TRoundedContainer(
-        height: 150.h,
+        // height: 150.h,
         showBorder: true,
         borderColor: const Color(0xFFE0E0E0),
         backgroundColor: Colors.transparent,
@@ -60,10 +60,13 @@ class OrderItem extends StatelessWidget {
                 ),
               ],
             ),
-            TRoundedContainer(
-              width: double.infinity,
-              height: 1.h,
-              backgroundColor: TColors.grey,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: TRoundedContainer(
+                width: double.infinity,
+                height: 1.h,
+                backgroundColor: TColors.grey,
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -82,6 +85,25 @@ class OrderItem extends StatelessWidget {
                 ),
               ],
             ),
+            orderStatus == "completed" ? TSizes.xs.verticalSpace : const SizedBox(),
+            orderStatus == "completed" ? Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(TEnglishTexts.finalPrice, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500, fontSize: 14)),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(orderDate, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
+                  ],
+                ),
+              ],
+            ) : const SizedBox(),
+            TSizes.md.verticalSpace,
             showViewButton ? SizedBox(
               height: 36.h,
               child: ElevatedButton(onPressed: () => Get.to(OrderDetailsScreen()), child: Text(TEnglishTexts.viewOrders)),
