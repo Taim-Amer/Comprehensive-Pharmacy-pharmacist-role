@@ -27,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
     return Scaffold(
       drawer: const GeneralDrawer(),
       // appBar: const TAppBar(title: ProfileAppbar()),
-      appBar: TAppBar(title: GeneralAppbar(),),
+      appBar: const TAppBar(title: GeneralAppbar(showDrawer: false,),),
       body: Padding(
         padding:TSpacingStyle.paddingWithAppBarHeight,
         child: SingleChildScrollView(

@@ -32,8 +32,8 @@ class OrderDetailsScreen extends StatelessWidget {
       ),
       body: Column(
         children: [
-          const OrderItem(showViewButton: false),
-          TSizes.spaceBtwItems.verticalSpace,
+          // const OrderItem(showViewButton: false),
+          // TSizes.spaceBtwItems.verticalSpace,
           const PhotoContainer(),
           TSizes.spaceBtwItems.verticalSpace,
           const NoteContainer(),

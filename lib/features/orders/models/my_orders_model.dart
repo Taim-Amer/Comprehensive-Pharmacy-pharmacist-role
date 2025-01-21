@@ -105,7 +105,7 @@ class Dataa {
   int? id;
   int? customerId;
   int? pharmacistId;
-  Null? driverId;
+  int? driverId;
   String? status;
   String? description;
   String? price;

@@ -9,9 +9,13 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key, this.showViewButton = true});
+  const OrderItem({super.key, this.showViewButton = true, required this.orderID, required this.orderDate, required this.orderStatus, required this.customerName});
 
   final bool showViewButton;
+  final int orderID;
+  final String orderDate;
+  final String orderStatus;
+  final String customerName;
 
   @override
   Widget build(BuildContext context) {

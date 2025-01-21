@@ -14,7 +14,7 @@ class NotificationsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(title: GeneralAppbar()),
+      appBar: const TAppBar(title: GeneralAppbar(showDrawer: false,)),
       drawer: const GeneralDrawer(),
       body: Center(
         child: Column(
