@@ -21,10 +21,12 @@ class OrdersController extends GetxController {
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.newOrders,
-    TEnglishTexts.currentOrders,
+    TEnglishTexts.completed,
+    TEnglishTexts.pending,
+    TEnglishTexts.canceled,
     TEnglishTexts.rejected,
-    TEnglishTexts.finishedOrders,
+    TEnglishTexts.processing,
+    TEnglishTexts.onTheWay,
   ].obs;
 
   var orderStatusChipList2 = <String>[

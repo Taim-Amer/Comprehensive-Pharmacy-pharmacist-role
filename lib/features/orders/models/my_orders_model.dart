@@ -24,7 +24,7 @@ class MyOrdersModel {
 
 class Data {
   int? currentPage;
-  List<Data>? data;
+  List<Dataa>? data;
   String? firstPageUrl;
   int? from;
   int? lastPage;
@@ -55,9 +55,9 @@ class Data {
   Data.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      data = <Data>[];
+      data = <Dataa>[];
       json['data'].forEach((v) {
-        data!.add(Data.fromJson(v));
+        data!.add(Dataa.fromJson(v));
       });
     }
     firstPageUrl = json['first_page_url'];

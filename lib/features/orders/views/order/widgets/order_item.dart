@@ -9,13 +9,14 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key, this.showViewButton = true, required this.orderID, required this.orderDate, required this.orderStatus, required this.customerName});
+  const OrderItem({super.key, this.showViewButton = true, required this.orderID, required this.orderDate, required this.orderStatus, required this.customerName, required this.phoneNumber});
 
   final bool showViewButton;
   final int orderID;
   final String orderDate;
   final String orderStatus;
   final String customerName;
+  final String phoneNumber;
 
   @override
   Widget build(BuildContext context) {
@@ -40,8 +41,8 @@ class OrderItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(TEnglishTexts.customerName, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
-                    Text(TEnglishTexts.orderNo, style: Theme.of(context).textTheme.labelLarge)
+                    Text(customerName, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
+                    Text("${TEnglishTexts.orderNo} #[$orderID]", style: Theme.of(context).textTheme.labelLarge)
                   ],
                 ),
                 Column(
@@ -51,10 +52,10 @@ class OrderItem extends StatelessWidget {
                       children: [
                         const Icon(Iconsax.mobile, size: 20),
                         TSizes.xs.horizontalSpace,
-                        Text(TEnglishTexts.phoneNumber, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
+                        Text(phoneNumber, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
                       ],
                     ),
-                    Text(TEnglishTexts.orderNo, style: Theme.of(context).textTheme.labelLarge)
+                    // Text(TEnglishTexts.orderNo, style: Theme.of(context).textTheme.labelLarge)
                   ],
                 ),
               ],
@@ -76,7 +77,7 @@ class OrderItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Tue , 10 Sept 12:20 PM', style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
+                    Text(orderDate, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
                   ],
                 ),
               ],

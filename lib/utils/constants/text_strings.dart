@@ -59,6 +59,8 @@ class TArabicTexts {
   static String get pending => '';
   static String get canceled => '';
   static String get rejected => '';
+  static String get processing => "";
+  static String get onTheWay => "";
   static String get orderID => '';
   static String get orderDate => '';
   static String get orderDetails => '';
@@ -205,6 +207,8 @@ class TEnglishTexts {
   static String get pending => 'Pending';
   static String get canceled => 'Canceled';
   static String get rejected => 'Rejected';
+  static String get processing => "Processing";
+  static String get onTheWay => "On the way";
   static String get orderID => 'Order ID : #2345213';
   static String get orderDate => 'Order date';
   static String get orderDetails => 'Order Details';
@@ -217,7 +221,7 @@ class TEnglishTexts {
   static String get finishedOrders => 'Finished orders';
   static String get viewOrders => 'View order';
   static String get customerName => 'Customer name';
-  static String get orderNo => 'Order No: # 34566';
+  static String get orderNo => 'Order No:';
   static String get newOrdersEmptyTitle => 'There are no new orders currently';
   static String get newOrdersEmptySubTitle => 'Make sure you are available to be able to receive requests';
   static String get currentOrdersEmptySubTitle => 'All orders that are still in progress appear here';
