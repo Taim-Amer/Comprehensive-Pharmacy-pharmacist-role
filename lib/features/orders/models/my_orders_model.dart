@@ -1,14 +1,22 @@
+import 'dart:convert';
+
 class MyOrdersModel {
   bool? status;
   String? message;
-  Data? data;
+  Data? data; // يمكن أن يكون كائنًا أو null
 
   MyOrdersModel({this.status, this.message, this.data});
 
   MyOrdersModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
     message = json['message'];
-    data = json['data'] != null ? Data.fromJson(json['data']) : null;
+
+    // التحقق من نوع البيانات
+    if (json['data'] is Map<String, dynamic>) {
+      data = Data.fromJson(json['data']);
+    } else if (json['data'] is List && (json['data'] as List).isEmpty) {
+      data = null; // عندما تكون البيانات قائمة فارغة
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -37,28 +45,34 @@ class Data {
   int? to;
   int? total;
 
-  Data(
-      {this.currentPage,
-        this.data,
-        this.firstPageUrl,
-        this.from,
-        this.lastPage,
-        this.lastPageUrl,
-        this.links,
-        this.nextPageUrl,
-        this.path,
-        this.perPage,
-        this.prevPageUrl,
-        this.to,
-        this.total});
+  Data({
+    this.currentPage,
+    this.data,
+    this.firstPageUrl,
+    this.from,
+    this.lastPage,
+    this.lastPageUrl,
+    this.links,
+    this.nextPageUrl,
+    this.path,
+    this.perPage,
+    this.prevPageUrl,
+    this.to,
+    this.total,
+  });
 
   Data.fromJson(Map<String, dynamic> json) {
     currentPage = json['current_page'];
     if (json['data'] != null) {
-      data = <Dataa>[];
-      json['data'].forEach((v) {
-        data!.add(Dataa.fromJson(v));
-      });
+      // Handle both cases: list and map
+      if (json['data'] is List) {
+        data = <Dataa>[];
+        json['data'].forEach((v) {
+          data!.add(Dataa.fromJson(v));
+        });
+      } else if (json['data'] is Map<String, dynamic>) {
+        data = [Dataa.fromJson(json['data'])];
+      }
     }
     firstPageUrl = json['first_page_url'];
     from = json['from'];
@@ -114,18 +128,19 @@ class Dataa {
   Pharmacist? pharmacist;
   Customer? customer;
 
-  Dataa(
-      {this.id,
-        this.customerId,
-        this.pharmacistId,
-        this.driverId,
-        this.status,
-        this.description,
-        this.price,
-        this.createdAt,
-        this.updatedAt,
-        this.pharmacist,
-        this.customer});
+  Dataa({
+    this.id,
+    this.customerId,
+    this.pharmacistId,
+    this.driverId,
+    this.status,
+    this.description,
+    this.price,
+    this.createdAt,
+    this.updatedAt,
+    this.pharmacist,
+    this.customer,
+  });
 
   Dataa.fromJson(Map<String, dynamic> json) {
     id = json['id'];

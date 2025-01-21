@@ -11,7 +11,7 @@ class OrderShimmer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(TSizes.defaultSpace),
       child: ListView.separated(
-        itemCount: 4,
+        itemCount: 10,
         physics: const BouncingScrollPhysics(
           parent: AlwaysScrollableScrollPhysics(),
         ),

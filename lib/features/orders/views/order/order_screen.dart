@@ -25,7 +25,6 @@ class OrderScreen extends StatelessWidget {
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
           return Scaffold(
-            floatingActionButton: Obx(() => OrdersController.instance.getMyOrdersApiStatus.value == RequestState.noData ? const SizedBox() : const OrderFloatingActionButton()),
             drawer: const GeneralDrawer(),
             appBar: const TAppBar(
               title: GeneralAppbar(showDrawer: true,),
