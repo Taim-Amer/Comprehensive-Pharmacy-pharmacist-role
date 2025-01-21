@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/alerts/snackbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/change_ready_status_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
@@ -14,10 +15,13 @@ class OrdersController extends GetxController {
 
   final pageController = PageController(viewportFraction: .8);
   Rx<int> currentPageIndex = 0.obs;
+  Rx<bool> readyStatus = true.obs;
 
   Rx<RequestState> getMyOrdersApiStatus = RequestState.begin.obs;
+  Rx<RequestState> changeReadyApiStatus = RequestState.begin.obs;
 
   final myOrdersModel = MyOrdersModel().obs;
+  final changeReadyModel = ChangeReadyStatusModel().obs;
 
 
   var selectedChips = <bool>[true, false, false, false].obs;
@@ -80,5 +84,26 @@ class OrdersController extends GetxController {
       THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
+  }
+
+  Future<bool> changeReady() async{
+    THelperFunctions.updateApiStatus(target: changeReadyApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.changeReady().then((response){
+      if(response.status == true){
+        THelperFunctions.updateApiStatus(target: changeReadyApiStatus, value: RequestState.success);
+        if(response.data!.status == true){
+          readyStatus.value = true;
+        }else if(response.data!.status == false){
+          readyStatus.value = false;
+        }
+      } else{
+        THelperFunctions.updateApiStatus(target: changeReadyApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      THelperFunctions.updateApiStatus(target: changeReadyApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.warning);
+    });
+    return readyStatus.value;
   }
 }

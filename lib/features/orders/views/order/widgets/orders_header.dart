@@ -1,10 +1,13 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class OrdersHeader extends StatelessWidget {
   const OrdersHeader({super.key});
@@ -26,15 +29,29 @@ class OrdersHeader extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text(TEnglishTexts.readyToReceiveTitle, style: Theme.of(context).textTheme.titleMedium?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
-                Switch(value: true, onChanged: (val){})
+                Text(
+                  TEnglishTexts.readyToReceiveTitle,
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                    color: dark ? TColors.light : const Color(0xFF383838),
+                  ),
+                ),
+                Obx(() {
+                  return Switch(
+                    value: OrdersController.instance.readyStatus.value,
+                    onChanged: (val) => OrdersController.instance.changeReady(),
+                  );
+                }),
               ],
             ),
           ),
-          Expanded(child: Text(TEnglishTexts.readyToReceiveSubTitle, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070)),))
+          Expanded(
+            child: Text(
+              TEnglishTexts.readyToReceiveSubTitle,
+              style: Theme.of(context).textTheme.labelLarge?.copyWith(color: const Color(0xFF707070)),
+            ),
+          ),
         ],
       ),
-
     );
   }
 }
