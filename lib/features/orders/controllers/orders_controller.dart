@@ -3,11 +3,13 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/chan
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_details_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -116,6 +118,7 @@ class OrdersController extends GetxController {
       if(response.status == true){
         orderDetailsModel.value = response;
         THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.success);
+        Get.to(() => const OrderDetailsScreen());
       } else{
         THelperFunctions.updateApiStatus(target: orderDetailsApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);

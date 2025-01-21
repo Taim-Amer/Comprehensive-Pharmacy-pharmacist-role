@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -106,7 +107,7 @@ class OrderItem extends StatelessWidget {
             TSizes.md.verticalSpace,
             showViewButton ? SizedBox(
               height: 36.h,
-              child: ElevatedButton(onPressed: () => Get.to(OrderDetailsScreen()), child: Text(TEnglishTexts.viewOrders)),
+              child: ElevatedButton(onPressed: () => OrdersController.instance.showOrder(orderID: orderID), child: Text(TEnglishTexts.viewOrders)),
             ) : const SizedBox(),
           ],
         ),
