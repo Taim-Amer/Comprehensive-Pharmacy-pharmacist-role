@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/conf
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_details_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/reject_order_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/update_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
@@ -27,12 +28,14 @@ class OrdersController extends GetxController {
   Rx<RequestState> orderDetailsApiStatus = RequestState.begin.obs;
   Rx<RequestState> confirmApiStatus = RequestState.begin.obs;
   Rx<RequestState> rejectApiStatus = RequestState.begin.obs;
+  Rx<RequestState> updateOrderApiStatus = RequestState.begin.obs;
 
   final myOrdersModel = MyOrdersModel().obs;
   final changeReadyModel = ChangeReadyStatusModel().obs;
   final orderDetailsModel = OrderDetailsModel().obs;
   final confirmModel = ConfirmOrderModel().obs;
   final rejectModel = RejectOrderModel().obs;
+  final updateOrderModel = UpdateOrderModel().obs;
 
 
   var selectedChips = <bool>[true, false, false, false].obs;
@@ -168,6 +171,24 @@ class OrdersController extends GetxController {
     }).catchError((error){
       TLoggerHelper.error(error.toString());
       THelperFunctions.updateApiStatus(target: rejectApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> updateOrder({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: updateOrderApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.updateOrder(orderID: orderID).then((response){
+      if(response.status == true){
+        updateOrderModel.value = response;
+        THelperFunctions.updateApiStatus(target: updateOrderApiStatus, value: RequestState.success);
+        showSnackBar(response.message ?? '', AlertState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: updateOrderApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: updateOrderApiStatus, value: RequestState.error);
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }
