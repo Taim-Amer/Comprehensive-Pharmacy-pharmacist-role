@@ -1,29 +1,14 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:location/location.dart';
 
 class THelperFunctions {
-
-  static void showSnackBar(String message) {
-    ScaffoldMessenger.of(Get.context!).showSnackBar(
-      SnackBar(
-        content: Text(message),
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(20.r),
-        ),
-        behavior: SnackBarBehavior.floating,
-        margin: const EdgeInsets.only(
-          bottom: 5.0,
-        ),
-      ),
-    );
-  }
 
   static viewNotification(RemoteMessage message) async {
     await Future.delayed(const Duration(milliseconds: 500));
@@ -41,24 +26,6 @@ class THelperFunctions {
     } else {
       TLoggerHelper.info('No notification data in message');
     }
-  }
-
-  static void showAlert(String title, String message) {
-    showDialog(
-      context: Get.context!,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: Text(title),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).pop(),
-              child: const Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   static void navigateToScreen(BuildContext context, Widget screen) {
@@ -100,6 +67,15 @@ class THelperFunctions {
   static void updateApiStatus({required Rx<RequestState> target, required RequestState value}){
     target.value = value;
   }
+
+  // Future<String> getPlaceName(double lat, double lng) async {
+  //   List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
+  //
+  //   if (placemarks.isNotEmpty) {
+  //     return placemarks.first.name ?? '';
+  //   }
+  //   return 'Unknown Place';
+  // }
 
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize){
     final wrappedList = <Widget>[];

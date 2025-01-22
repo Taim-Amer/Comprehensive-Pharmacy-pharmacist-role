@@ -26,4 +26,14 @@ class TApiConstants {
   static const String getOrders = 'pharmacist/orders';
 
   static const String showOrder = 'order/show';
+
+  static const String getDrivers = 'drivers';
+
+  static const String assignOrder = 'order/assign-driver';
+
+  static const String updateOrder = 'order/status/on_the_way';
+
+  static const String addOrderPrice = 'order/add_price';
+
+  static const String addDeliveryPrice = 'delivery-price';
 }

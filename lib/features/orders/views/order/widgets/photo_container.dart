@@ -1,4 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/images/rounded_image.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -26,13 +28,19 @@ class PhotoContainer extends StatelessWidget {
                 height: 200.h,
                 backgroundColor: dark ? TColors.dark : TColors.grey,
                 child: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset(TImages.camera),
-                      TSizes.sm.verticalSpace,
-                      Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),)
-                    ],
+                  // child: Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     SvgPicture.asset(TImages.camera),
+                  //     TSizes.sm.verticalSpace,
+                  //     Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.labelLarge?.copyWith(color: Colors.white),)
+                  //   ],
+                  // ),
+                  child: TRoundedImage(
+                    imageUrl: "https://pharmacy.technoplus.dev/storage/${OrdersController.instance.orderDetailsModel.value.data?.files?.first.filePath}",
+                    isNetworkImage: true,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
                   ),
                 ),
               ),
