@@ -1,6 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/dependencies/order_binding.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/dependencies/signin_binding.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/map_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/user_location_map.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/translations.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';

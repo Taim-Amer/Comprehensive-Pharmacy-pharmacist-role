@@ -73,4 +73,6 @@ class TImages {
 
   // Global
   static const String noConnection = 'assets/images/NoConnection.svg';
+  static const String searchIcon = 'assets/icons/noun-pin-608665 1.svg';
+  static const String motorIcon = 'assets/icons/motor-scooter-svgrepo-com 5.svg';
 }

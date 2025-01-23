@@ -3,24 +3,28 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/device/device_utility
 import 'package:flutter/material.dart';
 
 class TAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const TAppBar(
-      {super.key,
-      this.title,
-      this.leadingIcon,
-      this.actions,
-      this.leadingOnPressed,
-      this.showBackArrow = false});
+  const TAppBar({
+    super.key,
+    this.title,
+    this.leadingIcon,
+    this.actions,
+    this.leadingOnPressed,
+    this.showBackArrow = false,
+    this.backgroundColor,
+  });
 
   final Widget? title;
   final bool showBackArrow;
   final IconData? leadingIcon;
   final List<Widget>? actions;
   final VoidCallback? leadingOnPressed;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
       automaticallyImplyLeading: false,
+      backgroundColor: backgroundColor,
       leading: showBackArrow
           ? const BackIcon() : leadingIcon != null
               ? IconButton(

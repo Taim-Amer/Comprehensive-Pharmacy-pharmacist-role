@@ -33,6 +33,13 @@ class $AssetsIconsGen {
   /// Directory path: assets/icons/flags
   $AssetsIconsFlagsGen get flags => const $AssetsIconsFlagsGen();
 
+  /// File path: assets/icons/motor-scooter-svgrepo-com 5.svg
+  String get motorScooterSvgrepoCom5 =>
+      'assets/icons/motor-scooter-svgrepo-com 5.svg';
+
+  /// File path: assets/icons/noun-pin-608665 1.svg
+  String get nounPin6086651 => 'assets/icons/noun-pin-608665 1.svg';
+
   /// File path: assets/icons/trash.svg
   String get trash => 'assets/icons/trash.svg';
 
@@ -47,6 +54,8 @@ class $AssetsIconsGen {
         clipboardTick,
         edit,
         f7CameraFill,
+        motorScooterSvgrepoCom5,
+        nounPin6086651,
         trash,
         truckFast
       ];

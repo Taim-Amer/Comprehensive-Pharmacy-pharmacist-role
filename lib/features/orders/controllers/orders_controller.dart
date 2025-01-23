@@ -14,6 +14,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functi
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:scroll_date_picker/scroll_date_picker.dart';
 
 class OrdersController extends GetxController {
   static OrdersController get instance => Get.find<OrdersController>();
@@ -66,6 +67,10 @@ class OrdersController extends GetxController {
     getMyOrders(status: "processing");
     getMyOrders(status: "on the way");
     super.onReady();
+  }
+
+  bool isPending({required String state}){
+    return state == orderStatusChipList2[1] ? true : false;
   }
 
   void toggleChipSelection(int index, bool isSelected) {

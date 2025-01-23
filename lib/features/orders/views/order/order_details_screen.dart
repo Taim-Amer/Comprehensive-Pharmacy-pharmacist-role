@@ -11,6 +11,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart'
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 
 class OrderDetailsScreen extends StatelessWidget {
   const OrderDetailsScreen({super.key});
@@ -46,7 +47,7 @@ class OrderDetailsScreen extends StatelessWidget {
           TSizes.spaceBtwItems.verticalSpace,
           const LocationContainer(),
           const Spacer(),
-          Padding(
+          Obx(() => OrdersController.instance.isPending(state: orderDetails.status!) ? Padding(
             padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
             child: Column(
               children: [
@@ -55,7 +56,7 @@ class OrderDetailsScreen extends StatelessWidget {
                 const RejectOrderButton(),
               ],
             ),
-          ),
+          ) : const SizedBox()),
           TSizes.spaceBtwItems.verticalSpace,
         ],
       ),

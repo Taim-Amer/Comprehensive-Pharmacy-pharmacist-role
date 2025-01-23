@@ -22,7 +22,7 @@ class NoteContainer extends StatelessWidget {
           children: [
             SvgPicture.asset(TImages.edit),
             TSizes.xs.horizontalSpace,
-            Text(OrdersController.instance.orderDetailsModel.value.data?.description.toString() ?? "No Notes for this Order", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 14))
+            Text(OrdersController.instance.orderDetailsModel.value.data?.description ?? "No Notes for this Order", style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 14))
           ],
         ),
       ),
