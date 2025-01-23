@@ -35,7 +35,7 @@ class Data {
   Pharmacist? pharmacist;
   Customer? customer;
   List<Files>? files;
-  Null? driver;
+  int? driver;
 
   Data(
       {this.id,

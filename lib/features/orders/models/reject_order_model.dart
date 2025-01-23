@@ -24,9 +24,9 @@ class RejectOrderModel {
 
 class Data {
   int? id;
-  Null? customerId;
+  int? customerId;
   int? pharmacistId;
-  Null? driverId;
+  int? driverId;
   String? status;
   String? description;
   String? price;

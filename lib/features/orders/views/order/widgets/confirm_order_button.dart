@@ -1,4 +1,6 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_status_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -13,9 +15,11 @@ class ConfirmOrderButton extends StatelessWidget {
       height: 50.h,
       width: double.infinity,
       child: ElevatedButton(
-        onPressed: () => Get.to( OrderStatusScreen()),
+        onPressed: () => OrdersController.instance.confirm(orderID: OrdersController.instance.orderDetailsModel.value.data!.id!),
         child: Text(TEnglishTexts.confirmOrder),
       ),
     );
   }
 }
+
+//OrdersController.instance.confirmApiStatus.value == RequestState.success || OrdersController.instance.rejectApiStatus.value == RequestState.success ? const SizedBox() :

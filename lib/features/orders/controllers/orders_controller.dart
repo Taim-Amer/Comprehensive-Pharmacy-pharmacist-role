@@ -12,7 +12,6 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart'
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -145,6 +144,8 @@ class OrdersController extends GetxController {
       if(response.status == true){
         confirmModel.value = response;
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.success);
+        getMyOrders(status: "pending");
+        Get.back();
         showSnackBar(response.message ?? '', AlertState.success);
       } else{
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.error);
@@ -164,6 +165,8 @@ class OrdersController extends GetxController {
         rejectModel.value = response;
         THelperFunctions.updateApiStatus(target: rejectApiStatus, value: RequestState.success);
         showSnackBar(response.message ?? '', AlertState.success);
+        getMyOrders(status: "pending");
+        Get.back();
       } else{
         THelperFunctions.updateApiStatus(target: rejectApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
