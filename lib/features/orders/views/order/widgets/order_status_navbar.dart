@@ -15,7 +15,7 @@ class OrderStatusNavbar extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 50.h,
-        child: ElevatedButton(onPressed: () => Get.to(const OrderScreen()), child: Text(TEnglishTexts.confirmDelivery)),
+        child: ElevatedButton(onPressed: () => Get.to(const OrderScreen()), child: Text(TEnglishTexts.tcontinue)),
       ),
     );
   }

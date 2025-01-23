@@ -35,7 +35,7 @@ class Data {
   Pharmacist? pharmacist;
   Customer? customer;
   List<Files>? files;
-  int? driver;
+  Driver? driver;
 
   Data(
       {this.id,
@@ -74,7 +74,8 @@ class Data {
         files!.add(Files.fromJson(v));
       });
     }
-    driver = json['driver'];
+    // استخدام Driver.fromJson مع التحقق من null
+    driver = json['driver'] != null ? Driver.fromJson(json['driver']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -240,5 +241,40 @@ class Files {
     data['created_at'] = createdAt;
     data['updated_at'] = updatedAt;
     return data;
+  }
+}
+
+class Driver {
+  int? id;
+  String? name;
+  String? email;
+  String? lat;
+  String? lng;
+
+  Driver({this.id, this.name, this.email, this.lat, this.lng});
+
+  /// Factory method لتحويل JSON إلى كائن Driver
+  factory Driver.fromJson(Map<String, dynamic>? json) {
+    if (json == null) {
+      return Driver(); // إرجاع كائن Driver فارغ إذا كان JSON يساوي null
+    }
+    return Driver(
+      id: json['id'] as int?,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      lat: json['lat'] as String?,
+      lng: json['lng'] as String?,
+    );
+  }
+
+  /// تحويل كائن Driver إلى JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'email': email,
+      'lat': lat,
+      'lng': lng,
+    };
   }
 }

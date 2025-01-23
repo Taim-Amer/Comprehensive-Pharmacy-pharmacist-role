@@ -3,7 +3,7 @@ import 'dart:convert';
 class MyOrdersModel {
   bool? status;
   String? message;
-  Data? data; // يمكن أن يكون كائنًا أو null
+  Data? data;
 
   MyOrdersModel({this.status, this.message, this.data});
 
@@ -11,11 +11,10 @@ class MyOrdersModel {
     status = json['status'];
     message = json['message'];
 
-    // التحقق من نوع البيانات
     if (json['data'] is Map<String, dynamic>) {
       data = Data.fromJson(json['data']);
     } else if (json['data'] is List && (json['data'] as List).isEmpty) {
-      data = null; // عندما تكون البيانات قائمة فارغة
+      data = null;
     }
   }
 

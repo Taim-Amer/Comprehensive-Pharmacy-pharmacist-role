@@ -48,6 +48,7 @@ Future<dynamic> showDriverDetailsBottomsheet({required String name, required Str
                 ),
                 TSizes.spaceBtwSections.verticalSpace,
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const TotalCostTextfield(),
                     TSizes.spaceBtwItems.horizontalSpace,

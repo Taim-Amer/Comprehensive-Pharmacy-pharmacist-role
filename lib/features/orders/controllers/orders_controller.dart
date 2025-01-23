@@ -11,6 +11,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/upda
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/drivers_map.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_status_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
@@ -37,6 +38,7 @@ class OrdersController extends GetxController {
   Rx<RequestState> getDriversApiStatus = RequestState.begin.obs;
   Rx<RequestState> assignApiStatus = RequestState.begin.obs;
   Rx<RequestState> addPriceApiStatus = RequestState.begin.obs;
+  Rx<RequestState> onWayApiStatus = RequestState.begin.obs;
 
   final myOrdersModel = MyOrdersModel().obs;
   final changeReadyModel = ChangeReadyStatusModel().obs;
@@ -47,6 +49,7 @@ class OrdersController extends GetxController {
   final driversModel = DriverModel().obs;
   final assignModel = AssignOrderModel().obs;
   final addPriceModel = OrderPriceModel().obs;
+  final onWayModel = UpdateOrderModel().obs;
 
   final costController = TextEditingController();
   GlobalKey<FormState> costFormKey = GlobalKey<FormState>();
@@ -67,7 +70,7 @@ class OrdersController extends GetxController {
     "completed",
     "canceled",
     "rejected",
-    "processing",
+    "Processing",
     "on the way",
   ].obs;
 
@@ -85,6 +88,10 @@ class OrdersController extends GetxController {
 
   bool isPending({required String state}){
     return state == orderStatusChipList2[0] ? true : false;
+  }
+
+  bool isProcessing({required RxString state}){
+    return state.value == "Processing" ? true : false;
   }
 
   void toggleChipSelection(int index, bool isSelected) {
@@ -245,7 +252,7 @@ class OrdersController extends GetxController {
       if(response.status == true){
         assignModel.value = response;
         THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.success);
-        Get.offAllNamed(AppRoutes.order);
+        Get.offAll(() => const OrderStatusScreen(), transition: Transition.rightToLeft);
       } else{
         THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
@@ -278,4 +285,22 @@ class OrdersController extends GetxController {
     });
   }
 
+  Future<void> onTheWay({required int orderID}) async{
+    THelperFunctions.updateApiStatus(target: onWayApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.updateOrder(orderID: orderID).then((response){
+      if(response.status == true){
+        onWayModel.value = response;
+        THelperFunctions.updateApiStatus(target: onWayApiStatus, value: RequestState.success);
+        Get.toNamed(AppRoutes.order);
+        showSnackBar(response.message ?? '', AlertState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: onWayApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: onWayApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
 }

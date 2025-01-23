@@ -16,7 +16,7 @@ class OrderStatusScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: const OrderStatusNavbar(),
-      appBar: const TAppBar(title: OrderStatusAppbar()),
+      appBar: const TAppBar(),
       body: Padding(
         padding: TSpacingStyle.paddingWithAppBarHeight,
         child: Column(

@@ -13,7 +13,7 @@ class ConfirmDeliveryButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: Obx(() => OrdersController.instance.assignApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
+    return Obx(() => OrdersController.instance.assignApiStatus.value == RequestState.loading ? const Center(child: LoadingWidget()) : Expanded(child: SizedBox(
       height: 50.h,
       child: ElevatedButton(
         onPressed: () async{
