@@ -19,7 +19,7 @@ class LocationContainer extends StatelessWidget {
     double? lng = double.tryParse(place?.customer?.lng ?? '');
 
     return GestureDetector(
-      onTap: () => Get.to(MapPage(latitude: lat!, longitude: lng!,), transition: Transition.rightToLeft),
+      onTap: () => Get.to(UserLocationMap(latitude: lat!, longitude: lng!,), transition: Transition.rightToLeft),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: TSizes.defaultSpace.w),
         child: TRoundedContainer(

@@ -1,20 +1,25 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/alerts/snackbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/assign_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/change_ready_status_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/confirm_order_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/driver_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/my_orders_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_details_model.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/order_price_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/reject_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/update_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/repositories/order_repo_impl.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/drivers_map.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:scroll_date_picker/scroll_date_picker.dart';
 
 class OrdersController extends GetxController {
   static OrdersController get instance => Get.find<OrdersController>();
@@ -29,6 +34,9 @@ class OrdersController extends GetxController {
   Rx<RequestState> confirmApiStatus = RequestState.begin.obs;
   Rx<RequestState> rejectApiStatus = RequestState.begin.obs;
   Rx<RequestState> updateOrderApiStatus = RequestState.begin.obs;
+  Rx<RequestState> getDriversApiStatus = RequestState.begin.obs;
+  Rx<RequestState> assignApiStatus = RequestState.begin.obs;
+  Rx<RequestState> addPriceApiStatus = RequestState.begin.obs;
 
   final myOrdersModel = MyOrdersModel().obs;
   final changeReadyModel = ChangeReadyStatusModel().obs;
@@ -36,12 +44,18 @@ class OrdersController extends GetxController {
   final confirmModel = ConfirmOrderModel().obs;
   final rejectModel = RejectOrderModel().obs;
   final updateOrderModel = UpdateOrderModel().obs;
+  final driversModel = DriverModel().obs;
+  final assignModel = AssignOrderModel().obs;
+  final addPriceModel = OrderPriceModel().obs;
+
+  final costController = TextEditingController();
+  GlobalKey<FormState> costFormKey = GlobalKey<FormState>();
 
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.completed,
     TEnglishTexts.pending,
+    TEnglishTexts.completed,
     TEnglishTexts.canceled,
     TEnglishTexts.rejected,
     TEnglishTexts.processing,
@@ -49,8 +63,8 @@ class OrdersController extends GetxController {
   ].obs;
 
   var orderStatusChipList2 = <String>[
-    "completed",
     "pending",
+    "completed",
     "canceled",
     "rejected",
     "processing",
@@ -60,8 +74,8 @@ class OrdersController extends GetxController {
   @override
   void onReady() async{
     await getMyOrders();
-    getMyOrders(status: "completed");
     getMyOrders(status: "pending");
+    getMyOrders(status: "completed");
     getMyOrders(status: "canceled");
     getMyOrders(status: "rejected");
     getMyOrders(status: "processing");
@@ -70,7 +84,7 @@ class OrdersController extends GetxController {
   }
 
   bool isPending({required String state}){
-    return state == orderStatusChipList2[1] ? true : false;
+    return state == orderStatusChipList2[0] ? true : false;
   }
 
   void toggleChipSelection(int index, bool isSelected) {
@@ -149,9 +163,11 @@ class OrdersController extends GetxController {
       if(response.status == true){
         confirmModel.value = response;
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.success);
+        Get.to(() => DriversMap(drivers: driversModel.value.drivers ?? []), transition: Transition.rightToLeft);
+        TCacheHelper.saveData(key: 'order_id', value: orderID);
         getMyOrders(status: "pending");
-        Get.back();
-        showSnackBar(response.message ?? '', AlertState.success);
+        // Get.back();
+        // showSnackBar(response.message ?? '', AlertState.success);
       } else{
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
@@ -169,9 +185,9 @@ class OrdersController extends GetxController {
       if(response.status == true){
         rejectModel.value = response;
         THelperFunctions.updateApiStatus(target: rejectApiStatus, value: RequestState.success);
-        showSnackBar(response.message ?? '', AlertState.success);
-        getMyOrders(status: "pending");
         Get.back();
+        getMyOrders(status: "pending");
+        showSnackBar(response.message ?? '', AlertState.success);
       } else{
         THelperFunctions.updateApiStatus(target: rejectApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);
@@ -200,4 +216,66 @@ class OrdersController extends GetxController {
       showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
     });
   }
+
+  Future<void> getDrivers() async{
+    THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.loading);
+    await OrderRepoImpl.instance.getDrivers().then((response){
+      if(response.status == true){
+        driversModel.value = response;
+        THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.success);
+        // Get.to(() => DriversMap(drivers: response.drivers ?? []), transition: Transition.rightToLeft);
+      } else{
+        THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> assign({required int driverID}) async{
+    THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.loading);
+    if(!costFormKey.currentState!.validate()){
+      THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.begin);
+      return;
+    }
+    await OrderRepoImpl.instance.assignOrderToDriver(orderID: TCacheHelper.getData(key: 'order_id'), driverID: driverID).then((response){
+      if(response.status == true){
+        assignModel.value = response;
+        THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.success);
+        Get.offAllNamed(AppRoutes.order);
+      } else{
+        THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: assignApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
+  Future<void> setPrice() async{
+    THelperFunctions.updateApiStatus(target: addPriceApiStatus, value: RequestState.loading);
+    if(!costFormKey.currentState!.validate()){
+      THelperFunctions.updateApiStatus(target: addPriceApiStatus, value: RequestState.begin);
+      return;
+    }
+    await OrderRepoImpl.instance.addOrderPrice(orderID: TCacheHelper.getData(key: 'order_id'), price: double.tryParse(costController.text)!).then((response){
+      if(response.status == true){
+        addPriceModel.value = response;
+        THelperFunctions.updateApiStatus(target: addPriceApiStatus, value: RequestState.success);
+      } else{
+        THelperFunctions.updateApiStatus(target: addPriceApiStatus, value: RequestState.error);
+        showSnackBar(response.message ?? '', AlertState.warning);
+      }
+    }).catchError((error){
+      TLoggerHelper.error(error.toString());
+      THelperFunctions.updateApiStatus(target: addPriceApiStatus, value: RequestState.error);
+      showSnackBar(TranslationKey.kErrorMessage, AlertState.error);
+    });
+  }
+
 }

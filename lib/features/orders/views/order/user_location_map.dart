@@ -5,21 +5,21 @@ import 'package:flutter/material.dart';
 import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class MapPage extends StatefulWidget {
+class UserLocationMap extends StatefulWidget {
   final double latitude;
   final double longitude;
 
-  const MapPage({
+  const UserLocationMap({
     super.key,
     required this.latitude,
     required this.longitude,
   });
 
   @override
-  State<MapPage> createState() => _MapPageState();
+  State<UserLocationMap> createState() => _UserLocationMapState();
 }
 
-class _MapPageState extends State<MapPage> {
+class _UserLocationMapState extends State<UserLocationMap> {
   late MapController controller;
 
   @override
@@ -70,11 +70,6 @@ class _MapPageState extends State<MapPage> {
               "selectedLocation",
               MarkerIcon(
                 iconWidget: SvgPicture.asset(TImages.searchIcon),
-                // icon: const Icon(
-                //   Icons.location_on_rounded,
-                //   color: TColors.primary,
-                //   size: 30,
-                // ),
               ),
               [
                 GeoPoint(

@@ -98,6 +98,7 @@ class TArabicTexts {
   static String get searchingTitle => '';
   static String get searchingSubTitle => '';
   static String get cancelOrder => '';
+  static String get totalCost => '';
 
   // settings
   static String get dataEdit => '';
@@ -247,6 +248,7 @@ class TEnglishTexts {
   static String get searchingTitle => 'Your order is waiting to be accepted...';
   static String get searchingSubTitle => 'Sometimes it will take time so please be patient';
   static String get cancelOrder => 'Cancel order';
+  static String get totalCost => 'Total cost';
 
   // settings
   static String get dataEdit => 'Edit your personal information and location';

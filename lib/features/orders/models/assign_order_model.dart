@@ -31,16 +31,16 @@ class AssignOrderModel {
 
 class Order {
   int? id;
-  Null? customerId;
+  int? customerId;
   int? pharmacistId;
   int? driverId;
   String? status;
-  Null? description;
+  String? description;
   String? price;
   String? createdAt;
   String? updatedAt;
   Pharmacist? pharmacist;
-  Null? customer;
+  // Null? customer;
   Driver? driver;
 
   Order(
@@ -54,7 +54,7 @@ class Order {
         this.createdAt,
         this.updatedAt,
         this.pharmacist,
-        this.customer,
+        // this.customer,
         this.driver});
 
   Order.fromJson(Map<String, dynamic> json) {
@@ -70,9 +70,8 @@ class Order {
     pharmacist = json['pharmacist'] != null
         ? Pharmacist.fromJson(json['pharmacist'])
         : null;
-    customer = json['customer'];
-    driver =
-    json['driver'] != null ? Driver.fromJson(json['driver']) : null;
+    // customer = json['customer'];
+    driver = json['driver'] != null ? Driver.fromJson(json['driver']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -89,7 +88,7 @@ class Order {
     if (pharmacist != null) {
       data['pharmacist'] = pharmacist!.toJson();
     }
-    data['customer'] = customer;
+    // data['customer'] = customer;
     if (driver != null) {
       data['driver'] = driver!.toJson();
     }
