@@ -8,7 +8,9 @@ class TotalCostTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(child: SizedBox(
+    return Expanded(
+        flex: 1,
+        child: SizedBox(
       height: 50.h,
       child: TextFormField(
         controller: OrdersController.instance.costController,
