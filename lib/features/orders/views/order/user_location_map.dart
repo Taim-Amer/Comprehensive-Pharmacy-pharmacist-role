@@ -37,9 +37,9 @@ class _UserLocationMapState extends State<UserLocationMap> {
       _mapController.move(LatLng(widget.latitude, widget.longitude), 15);
     });
 
-    TMapServices.getRoute2(LatLng(widget.latitude, widget.longitude)).then((route) {
-      TMapServices.setRoute([LatLng(widget.latitude, widget.longitude), LatLng(TCacheHelper.getData(key: 'userLat'), TCacheHelper.getData(key: 'userLng'))]);
-    });
+    // TMapServices.getRoute2(LatLng(widget.latitude, widget.longitude)).then((route) {
+    //   TMapServices.setRoute([LatLng(widget.latitude, widget.longitude), LatLng(TCacheHelper.getData(key: 'userLat'), TCacheHelper.getData(key: 'userLng'))]);
+    // });
   }
 
   @override
@@ -56,15 +56,18 @@ class _UserLocationMapState extends State<UserLocationMap> {
                 return FlutterMap(
                   mapController: _mapController,
                   options: MapOptions(
-
                     initialCenter: currentLocation ?? const LatLng(0, 0),
                     initialZoom: 15,
+                    // يمكن إضافة maxZoom و minZoom إذا أردت تحديد الحدود
+                    maxZoom: 18.0,  // مستوى تكبير أقصى
+                    minZoom: 10.0,  // مستوى تكبير أدنى
+                    keepAlive: true, // حافظ على الخريطة حية (لا تُحدث بشكل متكرر)
                   ),
                   children: [
                     TileLayer(
                       urlTemplate: dark ? TApiConstants.darkMap : TApiConstants.lightMap,
                     ),
-                    const TCurrentMarker(),
+                    // const TCurrentMarker(),
                     // if (_destination != null)
                     MarkerLayer(
                       markers: [
@@ -76,7 +79,7 @@ class _UserLocationMapState extends State<UserLocationMap> {
                         ),
                       ],
                     ),
-                    const TRoad(),
+                    // const TRoad(),
                   ],
                 );
               },

@@ -34,13 +34,23 @@ class TMapServices {
   static Future<void> initializeLocation(Function(LatLng) onLocationUpdate) async {
     if (!await checkAndRequestPermissions()) return;
 
+    bool isFirstUpdate = true;
+
     _locationService.onLocationChanged.listen((LocationData locationData) {
       if (locationData.latitude != null && locationData.longitude != null) {
         final newLocation = LatLng(locationData.latitude!, locationData.longitude!);
-        currentLocationNotifier.value = newLocation;
-        onLocationUpdate(newLocation);
-        TCacheHelper.saveData(key: 'userLat', value: currentLocationNotifier.value!.latitude);
-        TCacheHelper.saveData(key: 'userLng', value: currentLocationNotifier.value!.longitude);
+
+        if (isFirstUpdate || currentLocationNotifier.value != newLocation) {
+          currentLocationNotifier.value = newLocation;
+          onLocationUpdate(newLocation);
+
+          TCacheHelper.saveData(key: 'userLat', value: newLocation.latitude);
+          TCacheHelper.saveData(key: 'userLng', value: newLocation.longitude);
+
+          if (isFirstUpdate) {
+            isFirstUpdate = false;
+          }
+        }
       }
     });
   }
