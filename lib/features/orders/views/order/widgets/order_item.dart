@@ -1,13 +1,8 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/formatters/formatter.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
@@ -54,7 +49,7 @@ class OrderItem extends StatelessWidget {
                       children: [
                         const Icon(Iconsax.mobile, size: 20),
                         TSizes.xs.horizontalSpace,
-                        Text(phoneNumber, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
+                        Text(TFormatter.formatPhoneNumber(phoneNumber), style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
                       ],
                     ),
                     // Text(TEnglishTexts.orderNo, style: Theme.of(context).textTheme.labelLarge)
@@ -82,7 +77,7 @@ class OrderItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(orderDate, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
+                    Text(TFormatter.formatDate(orderDate), style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
                   ],
                 ),
               ],

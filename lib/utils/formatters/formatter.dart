@@ -2,24 +2,28 @@ import 'package:intl/intl.dart';
 
 class TFormatter {
 
-  static String formatData(DateTime? date) {
-    date ??= DateTime.now();
-    return DateFormat("yyyy-MM-dd").format(date);
+  static String formatDate(String? dateString) {
+    final date = dateString != null ? DateTime.parse(dateString) : DateTime.now();
+    return DateFormat("yyyy MMMM dd").format(date);
   }
-
 
   static String formatCurrency(double amount) {
     return NumberFormat.currency(locale: "en_Us", symbol: "\$").format(amount);
   }
 
   static String formatPhoneNumber(String phoneNumber) {
-    if(phoneNumber.length == 10) {
-      return "(${phoneNumber.substring(0,3)}) ${phoneNumber.substring(3,6)} ${phoneNumber.substring(6)}";
-    }else if(phoneNumber.length == 11) {
-      return "(${phoneNumber.substring(0,4)}) ${phoneNumber.substring(4,7)} ${phoneNumber.substring(7)}";
+    if (phoneNumber.startsWith('+')) {
+      phoneNumber = phoneNumber.substring(1);
+
+      if (phoneNumber.length == 12) {
+        return "+(${phoneNumber.substring(0, 3)}) ${phoneNumber.substring(3, 6)} ${phoneNumber.substring(6)}";
+      } else if (phoneNumber.length == 13) {
+        return "+(${phoneNumber.substring(0, 4)}) ${phoneNumber.substring(4, 7)} ${phoneNumber.substring(7)}";
+      }
     }
     return phoneNumber;
   }
+
 
   static String internationalFormatPhoneNumber(String phoneNumber) {
     var digitsOnly = phoneNumber.replaceAll(RegExp(r'\D'), '');

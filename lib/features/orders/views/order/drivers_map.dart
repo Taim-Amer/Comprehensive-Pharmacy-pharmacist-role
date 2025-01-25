@@ -80,6 +80,8 @@ class _UserLocationMapState extends State<DriversMap> {
                     ),
                     MarkerLayer(markers: [
                       ...widget.drivers.map((driver) => Marker(
+                        width: 50,
+                        height: 50,
                         point: LatLng(double.parse(driver.lat!), double.parse(driver.lng!)),
                         child: GestureDetector(
                             onTap: () {
