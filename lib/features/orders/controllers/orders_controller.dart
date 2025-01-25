@@ -61,7 +61,6 @@ class OrdersController extends GetxController {
   var orderStatusChipList = <String>[
     TEnglishTexts.newOrders,
     TEnglishTexts.finishedOrders,
-    // TEnglishTexts.canceled,
     TEnglishTexts.rejected,
     TEnglishTexts.currentOrders,
     TEnglishTexts.onTheWay,
@@ -70,7 +69,6 @@ class OrdersController extends GetxController {
   var orderStatusChipList2 = <String>[
     "pending",
     "completed",
-    // "canceled",
     "rejected",
     "Processing",
     "on the way",
@@ -139,6 +137,7 @@ class OrdersController extends GetxController {
       if(response.status == true){
         myOrdersModel.value = response;
         if (myOrdersModel.value.data is List && (myOrdersModel.value.data as List).isEmpty) {
+          THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.loading);
           THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.noData);
           emptyForm(status!);
         }
