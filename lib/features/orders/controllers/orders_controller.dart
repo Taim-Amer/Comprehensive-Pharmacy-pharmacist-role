@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/alerts/snackbar.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/forms/empty_form.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/assign_order_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/change_ready_status_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/confirm_order_model.dart';
@@ -14,6 +15,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_status_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/logging/logger.dart';
@@ -115,6 +117,22 @@ class OrdersController extends GetxController {
     pageController.jumpTo(index);
   }
 
+  Widget emptyForm(String status){
+    Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+    if(status == orderStatusChipList2[0]){
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[1]){
+      empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[2]){
+      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[3]){
+      empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TEnglishTexts.currentOrdersEmptyTitle, subTitle: TEnglishTexts.currentOrdersEmptySubTitle);
+    } else if(status == orderStatusChipList2[4]){
+      empty = TEmptyForm(image: TImages.onTheWay, title: TEnglishTexts.onWayTitle, subTitle: TEnglishTexts.onWaySubTitle);
+    }
+    return empty;
+  }
+
   Future<void> getMyOrders({String? status}) async{
     THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.loading);
     await OrderRepoImpl.instance.getMyOrders(status: status).then((response){
@@ -122,6 +140,7 @@ class OrdersController extends GetxController {
         myOrdersModel.value = response;
         if (myOrdersModel.value.data is List && (myOrdersModel.value.data as List).isEmpty) {
           THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.noData);
+          emptyForm(status!);
         }
         THelperFunctions.updateApiStatus(target: getMyOrdersApiStatus, value: RequestState.success);
       } else{
