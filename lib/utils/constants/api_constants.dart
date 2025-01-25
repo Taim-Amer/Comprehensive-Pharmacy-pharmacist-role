@@ -3,6 +3,10 @@ class TApiConstants {
 
   static const String baseUrl = 'https://pharmacy.technoplus.dev/api/';
 
+  static const String darkMap = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png';
+
+  static const String lightMap = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+
   static const String register = 'pharmacists/register';
 
   static const String verify = 'otp/verify';

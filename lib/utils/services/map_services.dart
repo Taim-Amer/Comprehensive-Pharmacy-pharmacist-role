@@ -39,8 +39,7 @@ class TMapServices {
 
   static Future<void> getCoordinates(
       String location, Function(LatLng) onDestinationUpdate) async {
-    final url = Uri.parse(
-        'https://nominatim.openstreetmap.org/search?q=$location&format=json&limit=1');
+    final url = Uri.parse('https://nominatim.openstreetmap.org/search?q=$location&format=json&limit=1');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {

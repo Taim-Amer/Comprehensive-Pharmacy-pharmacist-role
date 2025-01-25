@@ -1,6 +1,11 @@
 import 'dart:convert';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/current_marker.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/road.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/services/map_services.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:flutter_map/flutter_map.dart';
@@ -42,6 +47,7 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
       appBar: AppBar(
         title: const Text("Map with Directions"),
@@ -80,22 +86,10 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                   children: [
                     TileLayer(
-                      urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                      urlTemplate: dark ? TApiConstants.darkMap : TApiConstants.lightMap,
                     ),
-                    CurrentLocationLayer(
-                      alignPositionOnUpdate: AlignOnUpdate.always,
-                      alignDirectionOnUpdate: AlignOnUpdate.never,
-                      style: const LocationMarkerStyle(
-                        marker: DefaultLocationMarker(
-                          child: Icon(
-                            Icons.navigation,
-                            color: Colors.white,
-                          ),
-                        ),
-                        markerSize: Size(40, 40),
-                        markerDirection: MarkerDirection.heading,
-                      ),
-                    ),
+
+                    const TCurrentMarker(),
                     if (_destination != null)
                       MarkerLayer(
                         markers: [
@@ -103,30 +97,11 @@ class _MapScreenState extends State<MapScreen> {
                             point: _destination!,
                             width: 50,
                             height: 50,
-                            child: const Icon(
-                              Icons.location_pin,
-                              color: Colors.red,
-                            ),
+                            child: SvgPicture.asset(TImages.searchIcon, color: dark ? TColors.light : TColors.dark),
                           ),
                         ],
                       ),
-                    ValueListenableBuilder<List<LatLng>>(
-                      valueListenable: TMapServices.routeNotifier,
-                      builder: (context, route, child) {
-                        if (route.isNotEmpty) {
-                          return PolylineLayer(
-                            polylines: [
-                              Polyline(
-                                points: route,
-                                strokeWidth: 4.0,
-                                color: Colors.red,
-                              ),
-                            ],
-                          );
-                        }
-                        return const SizedBox.shrink();
-                      },
-                    ),
+                    const TRoad(),
                   ],
                 );
               },
