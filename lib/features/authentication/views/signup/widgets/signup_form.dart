@@ -1,6 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signup_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signin/widgets/phone_country_code.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/location_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/location_map.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';

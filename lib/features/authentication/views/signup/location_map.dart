@@ -1,25 +1,26 @@
-import 'dart:convert';
+// ignore_for_file: library_private_types_in_public_api
+import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/current_marker.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/road.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/services/map_services.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:location/location.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_location_marker/flutter_map_location_marker.dart';
-import 'package:http/http.dart' as http;
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class LocationMap extends StatefulWidget {
+  const LocationMap({super.key});
 
   @override
-  _MapScreenState createState() => _MapScreenState();
+  _LocationMapState createState() => _LocationMapState();
 }
 
-class _MapScreenState extends State<MapScreen> {
+class _LocationMapState extends State<LocationMap> {
   final MapController _mapController = MapController();
   final TextEditingController _locationController = TextEditingController();
 
@@ -39,41 +40,22 @@ class _MapScreenState extends State<MapScreen> {
       TMapServices.getCoordinates(location, (destination) {
         setState(() {
           _destination = destination;
+          TCacheHelper.saveData(key: 'userLat', value: _destination!.latitude);
+          TCacheHelper.saveData(key: 'userLng', value: _destination!.longitude);
         });
         _mapController.move(destination, 15);
       });
     }
+
   }
 
   @override
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Map with Directions"),
-      ),
+      appBar: const TAppBar(showBackArrow: true),
       body: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              children: [
-                Expanded(
-                  child: TextField(
-                    controller: _locationController,
-                    decoration: const InputDecoration(
-                      hintText: 'Enter a location',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                ),
-                IconButton(
-                  onPressed: _searchLocation,
-                  icon: const Icon(Icons.search),
-                ),
-              ],
-            ),
-          ),
           Expanded(
             child: ValueListenableBuilder<LatLng?>(
               valueListenable: TMapServices.currentLocationNotifier,
@@ -88,7 +70,29 @@ class _MapScreenState extends State<MapScreen> {
                     TileLayer(
                       urlTemplate: dark ? TApiConstants.darkMap : TApiConstants.lightMap,
                     ),
-
+                    Padding(
+                      padding: const EdgeInsets.all(TSizes.defaultSpace),
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            controller: _locationController,
+                            enableInteractiveSelection: false,
+                            cursorColor: TColors.primary,
+                            onFieldSubmitted: (value) => _searchLocation(),
+                            decoration: InputDecoration(
+                              hintText: TEnglishTexts.addressEnter,
+                              prefixIcon: const Icon(Iconsax.location),
+                            ),
+                          ),
+                          const Spacer(),
+                          SizedBox(
+                            height: 50.h,
+                            width: double.infinity,
+                            child: ElevatedButton(onPressed: () => Get.back(), child: Text(TEnglishTexts.tcontinue)),
+                          )
+                        ],
+                      ),
+                    ),
                     const TCurrentMarker(),
                     if (_destination != null)
                       MarkerLayer(

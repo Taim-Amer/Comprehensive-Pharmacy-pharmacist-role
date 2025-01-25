@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
@@ -33,6 +34,8 @@ class TMapServices {
         final newLocation = LatLng(locationData.latitude!, locationData.longitude!);
         currentLocationNotifier.value = newLocation;
         onLocationUpdate(newLocation);
+        TCacheHelper.saveData(key: 'userLat', value: currentLocationNotifier.value!.latitude);
+        TCacheHelper.saveData(key: 'userLng', value: currentLocationNotifier.value!.longitude);
       }
     });
   }
@@ -58,17 +61,14 @@ class TMapServices {
     final currentLocation = currentLocationNotifier.value;
     if (currentLocation == null) return;
 
-    final url = Uri.parse(
-        'http://router.project-osrm.org/route/v1/driving/${currentLocation.longitude},${currentLocation.latitude};${destination.longitude},${destination.latitude}?overview=full&geometries=polyline');
+    final url = Uri.parse('http://router.project-osrm.org/route/v1/driving/${currentLocation.longitude},${currentLocation.latitude};${destination.longitude},${destination.latitude}?overview=full&geometries=polyline');
     final response = await http.get(url);
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       final geometry = data['routes'][0]['geometry'];
       final routePolyline = decodePolyline(geometry);
-      routeNotifier.value = routePolyline
-          .map((point) => LatLng(point[0], point[1]))
-          .toList();
+      routeNotifier.value = routePolyline.map((point) => LatLng(point[0], point[1])).toList();
     }
   }
 

@@ -26,6 +26,7 @@ class TArabicTexts {
   static String get emailAddress => '';
   static String get password => '';
   static String get confirmPassword => '';
+  static String get addressEnter => '';
   static String get location => '';
   static String get signinQuastion => '';
   static String get otpTitle => '';
@@ -175,6 +176,7 @@ class TEnglishTexts {
   static String get emailAddress => 'Email address';
   static String get password => 'Password';
   static String get confirmPassword => 'Confirm password';
+  static String get addressEnter => 'Enter Your Address';
   static String get location => 'Location';
   static String get signinQuastion => 'Already have an account?';
   static String get otpTitle => 'Verification code';
