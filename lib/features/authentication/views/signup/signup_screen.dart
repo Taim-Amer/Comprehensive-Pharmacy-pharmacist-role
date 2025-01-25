@@ -1,6 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/signup_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/signup_footer.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/widgets/signup_form.dart';

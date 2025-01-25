@@ -46,7 +46,6 @@ class _LocationMapState extends State<LocationMap> {
         _mapController.move(destination, 15);
       });
     }
-
   }
 
   @override

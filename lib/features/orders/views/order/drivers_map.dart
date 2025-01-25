@@ -65,7 +65,7 @@ class _UserLocationMapState extends State<DriversMap> {
           },
           child: Text(TEnglishTexts.next, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold, color: TColors.primary)),
         )],),
-      floatingActionButton: FloatingActionButton(onPressed: () => setState(() {})),
+      // floatingActionButton: FloatingActionButton(onPressed: () => setState(() {})),
       body: OSMFlutter(
         controller: controller,
         onGeoPointClicked: (geoPoint) {

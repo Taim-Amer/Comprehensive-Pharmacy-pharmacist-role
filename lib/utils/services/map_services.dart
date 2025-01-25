@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_polyline_points/flutter_polyline_points.dart';
 
 class TMapServices {
   TMapServices._();
@@ -24,6 +25,10 @@ class TMapServices {
       if (permissionGranted != PermissionStatus.granted) return false;
     }
     return true;
+  }
+
+  static void setRoute(List<LatLng> route) {
+    routeNotifier.value = route;
   }
 
   static Future<void> initializeLocation(Function(LatLng) onLocationUpdate) async {
@@ -71,6 +76,28 @@ class TMapServices {
       routeNotifier.value = routePolyline.map((point) => LatLng(point[0], point[1])).toList();
     }
   }
+
+  static Future<void> getRoute2(LatLng destination) async {
+    final currentLocation = currentLocationNotifier.value;
+    if (currentLocation == null) return;
+
+    final polylinePoints = PolylinePoints();
+    final result = await polylinePoints.getRouteBetweenCoordinates(
+
+      request: PolylineRequest(
+        origin: PointLatLng(currentLocation.latitude, currentLocation.longitude),
+        destination: PointLatLng(destination.latitude, destination.longitude),
+        mode: TravelMode.driving,
+      ),
+    );
+
+    if (result.points.isNotEmpty) {
+      routeNotifier.value = result.points
+          .map((point) => LatLng(point.latitude, point.longitude))
+          .toList();
+    }
+  }
+
 
   static List<List<double>> decodePolyline(String polyline) {
     const factor = 1e5;
