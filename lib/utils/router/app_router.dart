@@ -10,8 +10,6 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/vie
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signin/signin_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/otp_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/signup_screen.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/home/home_screen.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_details_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/order_screen.dart';
 import 'package:get/get.dart';
 
@@ -83,11 +81,11 @@ class AppRoutes {
         transition: Transition.fade
     ),
 
-    GetPage(
-        name: home,
-        page: () => const HomeScreen(),
-        transition: Transition.fade,
-        binding: OrderBinding()
-    ),
+    // GetPage(
+    //     name: home,
+    //     page: () => const HomeScreen(),
+    //     transition: Transition.fade,
+    //     binding: OrderBinding()
+    // ),
   ];
 }

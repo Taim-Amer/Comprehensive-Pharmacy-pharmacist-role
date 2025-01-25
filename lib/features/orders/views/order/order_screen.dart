@@ -20,7 +20,7 @@ class OrderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 6,
+      length: 5,
       child: Builder(
         builder: (BuildContext context) {
           final tabController = DefaultTabController.of(context);
@@ -43,7 +43,7 @@ class OrderScreen extends StatelessWidget {
                     child: const OrdersHeader(),
                   ),
                   bottom: TTabBar(
-                    tabs: List.generate(6, (index) => OrderStatusChip(
+                    tabs: List.generate(5, (index) => OrderStatusChip(
                       index: index,
                       tabController: tabController,
                       text: OrdersController.instance.orderStatusChipList[index],
@@ -60,10 +60,10 @@ class OrderScreen extends StatelessWidget {
                 children: [
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[0]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[1]),
+                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[3]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[4]),
-                  OrdersList(status: OrdersController.instance.orderStatusChipList2[5]),
                   // CompletedList(status: 'pending',),
                   // CompletedList(status: 'canceled',),
                   // CompletedList(status: 'rejected',),

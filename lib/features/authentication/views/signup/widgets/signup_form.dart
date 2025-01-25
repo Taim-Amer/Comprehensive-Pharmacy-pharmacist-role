@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signup_controller.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signin/widgets/phone_country_code.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/views/signup/location_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -7,6 +8,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_string
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 class SignupForm extends StatelessWidget {
@@ -80,6 +82,8 @@ class SignupForm extends StatelessWidget {
           TSizes.spaceBtwInputField.verticalSpace,
           TextFormField(
             enableInteractiveSelection: false,
+            readOnly: true,
+            onTap: () => Get.to(() => const LocationMap(), transition: Transition.rightToLeft),
             cursorColor: TColors.primary,
             decoration: InputDecoration(
                 hintText: TEnglishTexts.location,

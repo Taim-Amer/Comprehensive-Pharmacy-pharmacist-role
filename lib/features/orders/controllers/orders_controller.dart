@@ -57,29 +57,39 @@ class OrdersController extends GetxController {
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.pending,
-    TEnglishTexts.completed,
-    TEnglishTexts.canceled,
+    TEnglishTexts.newOrders,
+    TEnglishTexts.finishedOrders,
+    // TEnglishTexts.canceled,
     TEnglishTexts.rejected,
-    TEnglishTexts.processing,
+    TEnglishTexts.currentOrders,
     TEnglishTexts.onTheWay,
   ].obs;
 
   var orderStatusChipList2 = <String>[
     "pending",
     "completed",
-    "canceled",
+    // "canceled",
     "rejected",
     "Processing",
     "on the way",
   ].obs;
+
+  //return FlutterMap(
+  //       options: const MapOptions(),
+  //       children: [
+  //         TileLayer(
+  //           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+  //           userAgentPackageName: 'com.example.app',
+  //         ),
+  //       ],
+  //     );
 
   @override
   void onReady() async{
     await getMyOrders();
     getMyOrders(status: "pending");
     getMyOrders(status: "completed");
-    getMyOrders(status: "canceled");
+    // getMyOrders(status: "canceled");
     getMyOrders(status: "rejected");
     getMyOrders(status: "processing");
     getMyOrders(status: "on the way");
@@ -173,8 +183,6 @@ class OrdersController extends GetxController {
         Get.to(() => DriversMap(drivers: driversModel.value.drivers ?? []), transition: Transition.rightToLeft);
         TCacheHelper.saveData(key: 'order_id', value: orderID);
         getMyOrders(status: "pending");
-        // Get.back();
-        // showSnackBar(response.message ?? '', AlertState.success);
       } else{
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.error);
         showSnackBar(response.message ?? '', AlertState.warning);

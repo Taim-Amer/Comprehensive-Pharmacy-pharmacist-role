@@ -1,6 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/styles/spacing_styles.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_status_appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_status_body.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_status_navbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';

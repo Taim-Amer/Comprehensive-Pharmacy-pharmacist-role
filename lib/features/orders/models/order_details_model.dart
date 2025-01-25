@@ -253,10 +253,9 @@ class Driver {
 
   Driver({this.id, this.name, this.email, this.lat, this.lng});
 
-  /// Factory method لتحويل JSON إلى كائن Driver
   factory Driver.fromJson(Map<String, dynamic>? json) {
     if (json == null) {
-      return Driver(); // إرجاع كائن Driver فارغ إذا كان JSON يساوي null
+      return Driver();
     }
     return Driver(
       id: json['id'] as int?,
@@ -267,7 +266,6 @@ class Driver {
     );
   }
 
-  /// تحويل كائن Driver إلى JSON
   Map<String, dynamic> toJson() {
     return {
       'id': id,

@@ -38,8 +38,8 @@ class SignupController extends GetxController{
       phone: phoneController.text.trim(),
       password: passwordController.text.trim(),
       passwordConfirm: confirmPasswordController.text.trim(),
-      lat: 30.7333,
-      lng: 30.7333,
+      lat: TCacheHelper.getData(key: 'user_lat'),
+      lng: TCacheHelper.getData(key: 'user_lng'),
       fcmToken: "fcmToken",
     ).then((response) async{
       if(response.status == true){

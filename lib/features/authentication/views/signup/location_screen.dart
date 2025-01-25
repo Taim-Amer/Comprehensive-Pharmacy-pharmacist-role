@@ -14,16 +14,26 @@ class LocationMap extends StatefulWidget {
 
 class _LocationMapState extends State<LocationMap> {
   late MapController controller;
-  double? userLatitude;
-  double? userLongitude;
+  late double userLatitude;
+  late double userLongitude;
 
   @override
   void initState() {
     super.initState();
     controller = MapController(
-      initPosition: GeoPoint(latitude: 30.7333, longitude: 30.7333),
+      areaLimit: const BoundingBox(
+        east: 100,
+        north: 86.0,
+        south: -86.0,
+        west: -100,
+      ),
+      initMapWithUserPosition: const UserTrackingOption.withoutUserPosition(
+        enableTracking: true,
+        unFollowUser: false,
+      ),
     );
-    _getUserLocation();
+
+    _getUserLocation(); // استدعاء دالة الموقع عند بدء التشغيل
   }
 
   Future<void> _getUserLocation() async {
@@ -36,18 +46,52 @@ class _LocationMapState extends State<LocationMap> {
     TCacheHelper.saveData(key: 'user_lat', value: userLatitude);
     TCacheHelper.saveData(key: 'user_lng', value: userLongitude);
 
-    controller.goToLocation(userPosition);
-    }
-  
+    // تكبير على الموقع الحالي
+    await controller.moveTo(
+      animate: true,
+      GeoPoint(latitude: userLatitude, longitude: userLongitude),
+      // zoomLevel: 18, // حدد مستوى التكبير الذي تريده هنا
+    );
+  }
+
+
+  // Future<void> _getUserLocation() async {
+  //   final userPosition = await controller.myLocation();
+  //   setState(() {
+  //     userLatitude = userPosition.latitude;
+  //     userLongitude = userPosition.longitude;
+  //   });
+  //
+  //   TCacheHelper.saveData(key: 'user_lat', value: userLatitude);
+  //   TCacheHelper.saveData(key: 'user_lng', value: userLongitude);
+  //
+  //   print(
+  //       "==========================================================================================");
+  //   print(TCacheHelper.saveData(key: 'user_lat', value: userLatitude));
+  //   print(TCacheHelper.saveData(key: 'user_lng', value: userLongitude));
+  //
+  //   controller.goToLocation(userPosition);
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const TAppBar(showBackArrow: true),
       body: OSMFlutter(
         controller: controller,
+        onMapMoved: (Region re){
+          print(TCacheHelper.getData(key: 'user_lat'));
+        },
         osmOption: OSMOption(
+          // userLocationMarker: UserLocationMaker(
+          //   personMarker: MarkerIcon(
+          //     iconWidget: SvgPicture.asset(TImages.searchIcon),
+          //   ),
+          //   directionArrowMarker:
+          //       MarkerIcon(iconWidget: SvgPicture.asset(TImages.searchIcon)),
+          // ),
           userTrackingOption: const UserTrackingOption(
-            enableTracking: true,
+            enableTracking: false,
             unFollowUser: false,
           ),
           zoomOption: const ZoomOption(
@@ -64,8 +108,8 @@ class _LocationMapState extends State<LocationMap> {
               ),
               [
                 GeoPoint(
-                  latitude: userLatitude ?? 30.7333,
-                  longitude: userLongitude ?? 30.7333,
+                  latitude: userLatitude,
+                  longitude: userLongitude,
                 ),
               ],
             ),
