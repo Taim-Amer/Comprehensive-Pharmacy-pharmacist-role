@@ -128,7 +128,7 @@ class OrdersController extends GetxController {
     } else if(status == orderStatusChipList2[3]){
       empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TEnglishTexts.currentOrdersEmptyTitle, subTitle: TEnglishTexts.currentOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[4]){
-      empty = TEmptyForm(image: TImages.onTheWay, title: TEnglishTexts.onWayTitle, subTitle: TEnglishTexts.onWaySubTitle);
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle);
     }
     return empty;
   }

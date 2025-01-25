@@ -232,6 +232,8 @@ class TEnglishTexts {
   static String get rejectedOrdersEmptySubTitle => 'Any request that is rejected by you will appear here';
   static String get finishedOrdersEmptySubTitle => 'All orders completed by the customer will appear here';
   static String get finishedOrdersEmptyTitle => 'There are no completed orders';
+  static String get onTheWayOrdersEmptySubTitle => 'All orders on the way will appear here';
+  static String get onTheWayOrdersEmptyTitle => 'There are no on the way orders';
   static String get noteFromCustomer => 'Note from the customer';
   static String get locationCustomer => 'Customer location';
   static String get confirmOrder => 'Confirm order';

@@ -46,21 +46,14 @@ class OrdersList extends StatelessWidget {
         ),
       ));
     } else {
-      return Center(
+      return Obx(() => Center(
         child: RefreshIndicator(
           color: TColors.primary,
           backgroundColor: dark ? TColors.dark : TColors.light,
           onRefresh: () async => await OrdersController.instance.getMyOrders(status: status),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(TImages.emptyOrders),
-              TSizes.sm.verticalSpace,
-              const Text("No orders available"),
-            ],
-          ),
+          child: OrdersController.instance.emptyForm(status),
         ),
-      );
+      ));
     }
   }
 }
