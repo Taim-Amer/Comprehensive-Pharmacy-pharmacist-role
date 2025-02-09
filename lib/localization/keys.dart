@@ -45,12 +45,12 @@ class TranslationKey {
   static String get kLanguages => "languages".tr;
   static String get kPrivacy => "privacy".tr;
   static String get kSignOut => "signOut".tr;
-  static String get kCompleted => "completed".tr;
-  static String get kPending => "pending".tr;
-  static String get kCanceled => "canceled".tr;
-  static String get kRejected => "rejected".tr;
-  static String get kProcessing => "processing".tr;
-  static String get kOnTheWay => "onTheWay".tr;
+  static String get kCompleted => "completed";
+  static String get kPending => "pending";
+  static String get kCanceled => "canceled";
+  static String get kRejected => "rejected";
+  static String get kProcessing => "processing";
+  static String get kOnTheWay => "onTheWay";
   static String get kOrderID => "orderID".tr;
   static String get kPharmacyName => "pharmacyName".tr;
   static String get kOrderDate => "orderDate".tr;
@@ -99,4 +99,16 @@ class TranslationKey {
   static String get kNewAccountMessage => "newAccountMessage".tr;
   static String get kVerificationCodeMessage => "verificationCodeMessage".tr;
   static String get kNewDebtCreateMessage => "newDebtCreateMessage".tr;
+  static String get kNewOrdersEmptyTitle => "newOrdersEmptyTitle".tr;
+  static String get kNewOrdersEmptySubTitle => "newOrdersEmptySubTitle".tr;
+  static String get kCurrentOrdersEmptyTitle => "currentOrdersEmptyTitle".tr;
+  static String get kCurrentOrdersEmptySubTitle => "currentOrdersEmptySubTitle".tr;
+  static String get kRejectedOrdersEmptyTitle => "rejectedOrdersEmptyTitle".tr;
+  static String get kRejectedOrdersEmptySubTitle => "rejectedOrdersEmptySubTitle".tr;
+  static String get kFinishedOrdersEmptyTitle => "finishedOrdersEmptyTitle".tr;
+  static String get kFinishedOrdersEmptySubTitle => "finishedOrdersEmptySubTitle".tr;
+  static String get kOnTheWayOrdersEmptyTitle => "onTheWayOrdersEmptyTitle".tr;
+  static String get kOnTheWayOrdersEmptySubTitle => "onTheWayOrdersEmptySubTitle".tr;
+  static String get kCanceledOrdersEmptyTitle => "canceledOrdersEmptyTitle".tr;
+  static String get kCanceledOrdersEmptySubTitle => "canceledOrdersEmptySubTitle".tr;
 }
