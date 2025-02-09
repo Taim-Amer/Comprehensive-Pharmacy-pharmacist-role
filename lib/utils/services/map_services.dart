@@ -55,8 +55,7 @@ class TMapServices {
     });
   }
 
-  static Future<void> getCoordinates(
-      String location, Function(LatLng) onDestinationUpdate) async {
+  static Future<void> getCoordinates(String location, Function(LatLng) onDestinationUpdate) async {
     final url = Uri.parse('https://nominatim.openstreetmap.org/search?q=$location&format=json&limit=1');
     final response = await http.get(url);
 
@@ -107,7 +106,6 @@ class TMapServices {
           .toList();
     }
   }
-
 
   static List<List<double>> decodePolyline(String polyline) {
     const factor = 1e5;

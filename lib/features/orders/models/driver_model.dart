@@ -39,7 +39,7 @@ class Drivers {
   String? fcmToken;
   String? createdAt;
   String? updatedAt;
-  int? distance;
+  double? distance;
   Driver? driver;
 
   Drivers(

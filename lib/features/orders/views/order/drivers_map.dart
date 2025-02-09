@@ -32,6 +32,7 @@ class DriversMap extends StatefulWidget {
 
 class _UserLocationMapState extends State<DriversMap> {
   final MapController _mapController = MapController();
+  bool _mapMovedManually = false;
 
   @override
   void initState() {
@@ -43,7 +44,7 @@ class _UserLocationMapState extends State<DriversMap> {
     ) : const LatLng(0, 0);
 
     WidgetsBinding.instance.addPersistentFrameCallback((_) async {
-      if (widget.drivers.isNotEmpty) {
+      if (widget.drivers.isNotEmpty && !_mapMovedManually) {
         _mapController.move(initialPosition, 15);
       }
     });
@@ -73,6 +74,11 @@ class _UserLocationMapState extends State<DriversMap> {
                   options: MapOptions(
                     initialCenter: currentLocation ?? const LatLng(0, 0),
                     initialZoom: 15,
+                    onPositionChanged: (position, hasGesture) {
+                      if (hasGesture) {
+                        _mapMovedManually = true;
+                      }
+                    },
                   ),
                   children: [
                     TileLayer(

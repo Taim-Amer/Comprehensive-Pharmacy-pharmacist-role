@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/confirm_order_button.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/location_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/note_container.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_details_floating_action.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/photo_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/reject_order_button.dart';

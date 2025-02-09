@@ -8,7 +8,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
-Future<dynamic> showDriverDetailsBottomsheet({required String name, required String phone, required int distance, required int driverID}){
+Future<dynamic> showDriverDetailsBottomsheet({required String name, required String phone, required double distance, required int driverID}){
   return showModalBottomSheet(
     isScrollControlled: true,
     context: Get.context!,

@@ -1,6 +1,6 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,10 +23,10 @@ class SettingsAppbar extends StatelessWidget {
               children: [
                 Icon(Iconsax.language_circle, color: dark ? TColors.light : const Color(0xFF383838), size: 24),
                 TSizes.xs.horizontalSpace,
-                Text(TEnglishTexts.languages, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
+                Text(TranslationKey.kLanguages, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
               ],
             ),
-            Text(TEnglishTexts.languageSelect, style: Theme.of(context).textTheme.labelLarge),
+            Text(TranslationKey.kLanguageSelect, style: Theme.of(context).textTheme.labelLarge),
           ],
         ),
         GestureDetector(

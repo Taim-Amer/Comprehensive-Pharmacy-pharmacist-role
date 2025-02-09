@@ -24,7 +24,7 @@ class GeneralAppbar extends StatelessWidget {
           },
           child: Icon(Icons.more_vert, color: dark ? TColors.light : const Color(0xFF383838)),
         ) : const BackIcon(),
-        Text('Client App', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
+        Text('Pharmacy App', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: dark ? TColors.light : const Color(0xFF383838))),
         IconButton(
           onPressed: () => Get.to(const NotificationsScreen()),
           icon: Icon(Iconsax.notification, color: dark ? TColors.light : const Color(0xFF383838)),

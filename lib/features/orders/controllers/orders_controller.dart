@@ -74,22 +74,11 @@ class OrdersController extends GetxController {
     "on the way",
   ].obs;
 
-  //return FlutterMap(
-  //       options: const MapOptions(),
-  //       children: [
-  //         TileLayer(
-  //           urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-  //           userAgentPackageName: 'com.example.app',
-  //         ),
-  //       ],
-  //     );
-
   @override
   void onReady() async{
     await getMyOrders();
     getMyOrders(status: "pending");
     getMyOrders(status: "completed");
-    // getMyOrders(status: "canceled");
     getMyOrders(status: "rejected");
     getMyOrders(status: "processing");
     getMyOrders(status: "on the way");
@@ -198,7 +187,7 @@ class OrdersController extends GetxController {
       if(response.status == true){
         confirmModel.value = response;
         THelperFunctions.updateApiStatus(target: confirmApiStatus, value: RequestState.success);
-        Get.to(() => DriversMap(drivers: driversModel.value.drivers ?? []), transition: Transition.rightToLeft);
+        // Get.off(() => DriversMap(drivers: driversModel.value.drivers ?? []), transition: Transition.rightToLeft);
         TCacheHelper.saveData(key: 'order_id', value: orderID);
         getMyOrders(status: "pending");
       } else{
@@ -256,6 +245,8 @@ class OrdersController extends GetxController {
       if(response.status == true){
         driversModel.value = response;
         THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.success);
+
+        Get.off(() => DriversMap(drivers: driversModel.value.drivers ?? []), transition: Transition.rightToLeft);
         // Get.to(() => DriversMap(drivers: response.drivers ?? []), transition: Transition.rightToLeft);
       } else{
         THelperFunctions.updateApiStatus(target: getDriversApiStatus, value: RequestState.error);

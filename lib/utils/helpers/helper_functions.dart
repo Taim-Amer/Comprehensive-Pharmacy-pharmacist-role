@@ -4,9 +4,6 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
-import 'package:location/location.dart';
 
 class THelperFunctions {
 
@@ -67,15 +64,6 @@ class THelperFunctions {
   static void updateApiStatus({required Rx<RequestState> target, required RequestState value}){
     target.value = value;
   }
-
-  // Future<String> getPlaceName(double lat, double lng) async {
-  //   List<Placemark> placemarks = await placemarkFromCoordinates(lat, lng);
-  //
-  //   if (placemarks.isNotEmpty) {
-  //     return placemarks.first.name ?? '';
-  //   }
-  //   return 'Unknown Place';
-  // }
 
   static List<Widget> wrapWidgets(List<Widget> widgets, int rowSize){
     final wrappedList = <Widget>[];

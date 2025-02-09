@@ -11,7 +11,7 @@ class ConfirmOrderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => OrdersController.instance.confirmApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
+    return Obx(() => OrdersController.instance.confirmApiStatus.value == RequestState.loading || OrdersController.instance.getDriversApiStatus.value == RequestState.loading ? const LoadingWidget() : SizedBox(
       height: 50.h,
       width: double.infinity,
       child: ElevatedButton(
@@ -21,5 +21,3 @@ class ConfirmOrderButton extends StatelessWidget {
     ));
   }
 }
-
-//OrdersController.instance.confirmApiStatus.value == RequestState.success || OrdersController.instance.rejectApiStatus.value == RequestState.success ? const SizedBox() :
