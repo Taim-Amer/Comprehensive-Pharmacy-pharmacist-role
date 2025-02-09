@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/loaders/loading_widget.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/authentication/controllers/signin_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class SigninButton extends StatelessWidget {
       height: 50.h,
       child: ElevatedButton(
         onPressed: () => SigninController.instance.signin(),
-        child: Text(TEnglishTexts.login),
+        child: Text(TranslationKey.kLogin),
       ),
     ));
   }

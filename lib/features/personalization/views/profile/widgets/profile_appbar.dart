@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
@@ -15,8 +16,8 @@ class ProfileAppbar extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(TEnglishTexts.profile, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
-            Text(TEnglishTexts.dataEdit, style: Theme.of(context).textTheme.labelLarge),
+            Text(TranslationKey.kProfile, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
+            Text(TranslationKey.kDataEdit, style: Theme.of(context).textTheme.labelLarge),
           ],
         ),
         GestureDetector(

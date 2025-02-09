@@ -33,11 +33,11 @@ class SignupForm extends StatelessWidget {
           TSizes.spaceBtwInputField.verticalSpace,
           TextFormField(
             controller: SignupController.instance.pharmacyNameController,
-            validator: (value) => TValidator.validateEmptyText(" ${TEnglishTexts.pharmacyName}", value),
+            validator: (value) => TValidator.validateEmptyText(" ${TranslationKey.kPharmacyName}", value),
             enableInteractiveSelection: false,
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-              hintText: TEnglishTexts.pharmacyName,
+              hintText: TranslationKey.kPharmacyName,
               prefixIcon: const Icon(Iconsax.user),
             ),
           ),
@@ -86,7 +86,7 @@ class SignupForm extends StatelessWidget {
             onTap: () => Get.to(() => const LocationMap(), transition: Transition.rightToLeft),
             cursorColor: TColors.primary,
             decoration: InputDecoration(
-                hintText: TEnglishTexts.location,
+                hintText: TranslationKey.kLocation,
                 prefixIcon: const Icon(Iconsax.location),
                 suffixIcon: const Icon(Icons.keyboard_arrow_right_outlined, size: 22,)
             ),

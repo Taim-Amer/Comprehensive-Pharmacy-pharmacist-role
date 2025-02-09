@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
@@ -15,11 +16,11 @@ class OrdersEmptyBody extends StatelessWidget {
       children: [
         SvgPicture.asset(TImages.emptyOrders),
         TSizes.spaceBtwItems.verticalSpace,
-        Text(TEnglishTexts.emptyOrders, style: Theme.of(context).textTheme.titleLarge),
+        Text(TranslationKey.kEmptyOrders, style: Theme.of(context).textTheme.titleLarge),
         TSizes.sm.verticalSpace,
         SizedBox(
           width: THelperFunctions.screenWidth(context) / 1.5,
-          child: Text(TEnglishTexts.emptyOrdersSubTitle,
+          child: Text(TranslationKey.kEmptyOrdersSubTitle,
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelLarge,
           ),
@@ -30,7 +31,7 @@ class OrdersEmptyBody extends StatelessWidget {
           height: 50.h,
           child: ElevatedButton(
             onPressed: (){},
-            child: Text(TEnglishTexts.createOrder),
+            child: Text(TranslationKey.kCreateOrder),
           ),
         )
       ],

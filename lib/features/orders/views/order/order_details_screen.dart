@@ -8,6 +8,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/order_item.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/photo_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/reject_order_button.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -26,7 +27,7 @@ class OrderDetailsScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             const SizedBox(width: 30, child: BackIcon()),
-            Text(TEnglishTexts.orderDetails, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 20)),
+            Text(TranslationKey.kOrderDetails, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontSize: 20)),
             const SizedBox(width: 30)
           ],
         ),

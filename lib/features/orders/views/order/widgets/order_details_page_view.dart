@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -34,7 +35,7 @@ class OrderDetailsPageView extends StatelessWidget {
                 children: [
                   SvgPicture.asset(TImages.camera),
                   TSizes.md.verticalSpace,
-                  Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white))
+                  Text(TranslationKey.kPrescriptionPhoto, style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: Colors.white))
                 ],
               ),
             ),

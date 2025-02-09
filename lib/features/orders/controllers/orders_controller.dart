@@ -61,9 +61,9 @@ class OrdersController extends GetxController {
   var orderStatusChipList = <String>[
     TEnglishTexts.newOrders,
     TEnglishTexts.finishedOrders,
-    TEnglishTexts.rejected,
+    TranslationKey.kRejected,
     TEnglishTexts.currentOrders,
-    TEnglishTexts.onTheWay,
+    TranslationKey.kOnTheWay,
   ].obs;
 
   var orderStatusChipList2 = <String>[
@@ -105,17 +105,17 @@ class OrdersController extends GetxController {
   }
 
   Widget emptyForm(String status){
-    Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+    Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TranslationKey.kNewOrdersEmptyTitle, subTitle: TranslationKey.kNewOrdersEmptySubTitle);
     if(status == orderStatusChipList2[0]){
       empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[1]){
-      empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TEnglishTexts.finishedOrdersEmptyTitle, subTitle: TEnglishTexts.finishedOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TranslationKey.kFinishedOrdersEmptyTitle, subTitle: TranslationKey.kFinishedOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[2]){
-      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TEnglishTexts.rejectedOrdersEmptyTitle, subTitle: TEnglishTexts.rejectedOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.rejectedOrderEmpty, title: TranslationKey.kRejectedOrdersEmptyTitle, subTitle: TranslationKey.kRejectedOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[3]){
-      empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TEnglishTexts.currentOrdersEmptyTitle, subTitle: TEnglishTexts.currentOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.currentOrderEmpty, title: TranslationKey.kCurrentOrdersEmptyTitle, subTitle: TranslationKey.kCurrentOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[4]){
-      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.onTheWayOrdersEmptyTitle, subTitle: TEnglishTexts.onTheWayOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TranslationKey.kOnTheWayOrdersEmptyTitle, subTitle: TranslationKey.kOnTheWayOrdersEmptySubTitle);
     }
     return empty;
   }

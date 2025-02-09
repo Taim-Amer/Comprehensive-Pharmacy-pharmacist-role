@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/formatters/formatter.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class OrderItem extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(customerName, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500)),
-                    Text("${TEnglishTexts.orderNo} #[$orderID]", style: Theme.of(context).textTheme.labelLarge)
+                    Text("${TranslationKey.kOrderID} #[$orderID]", style: Theme.of(context).textTheme.labelLarge)
                   ],
                 ),
                 Column(
@@ -71,7 +72,7 @@ class OrderItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(TEnglishTexts.orderDate, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500, fontSize: 14)),
+                    Text(TranslationKey.kOrderDate, style: Theme.of(context).textTheme.bodyLarge?.copyWith(fontWeight: FontWeight.w500, fontSize: 14)),
                   ],
                 ),
                 Column(

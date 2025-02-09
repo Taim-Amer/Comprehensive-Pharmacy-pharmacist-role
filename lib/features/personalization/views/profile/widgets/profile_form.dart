@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
@@ -17,7 +18,7 @@ class ProfileForm extends StatelessWidget {
           enableInteractiveSelection: false,
           cursorColor: TColors.primary,
           decoration: InputDecoration(
-            hintText: TEnglishTexts.userName,
+            hintText: TranslationKey.kUserName,
             prefixIcon: const Icon(Iconsax.user),
           ),
         ),
@@ -28,7 +29,7 @@ class ProfileForm extends StatelessWidget {
           enableInteractiveSelection: false,
           cursorColor: TColors.primary,
           decoration: InputDecoration(
-            hintText: TEnglishTexts.emailAddress,
+            hintText: TranslationKey.kEmailAddress,
             prefixIcon: const Icon(Iconsax.message),
           ),
         ),
@@ -37,7 +38,7 @@ class ProfileForm extends StatelessWidget {
           enableInteractiveSelection: false,
           cursorColor: TColors.primary,
           decoration: InputDecoration(
-              hintText: TEnglishTexts.location,
+              hintText: TranslationKey.kLocation,
               prefixIcon: const Icon(Iconsax.location),
               suffixIcon: const Icon(Icons.keyboard_arrow_right_outlined, size: 22,)
           ),

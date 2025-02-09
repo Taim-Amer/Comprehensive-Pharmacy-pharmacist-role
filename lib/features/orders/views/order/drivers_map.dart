@@ -4,6 +4,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/buttons/back
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/current_marker.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/models/driver_model.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/driver_details_bottom_sheet.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
@@ -60,7 +61,7 @@ class _UserLocationMapState extends State<DriversMap> {
             showSnackBar("Order Confirmed", AlertState.success);
             Get.offAllNamed(AppRoutes.order);
           },
-          child: Text(TEnglishTexts.next, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold, color: TColors.primary)),
+          child: Text(TranslationKey.kNext, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold, color: TColors.primary)),
         )],),
       // floatingActionButton: FloatingActionButton(onPressed: () => setState(() {})),
       body: Column(

@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/router/app_router.dart';
@@ -15,7 +16,7 @@ class OrderStatusNavbar extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         height: 50.h,
-        child: ElevatedButton(onPressed: () => Get.offAllNamed(AppRoutes.order), child: Text(TEnglishTexts.tcontinue)),
+        child: ElevatedButton(onPressed: () => Get.offAllNamed(AppRoutes.order), child: Text(TranslationKey.kTcontinue)),
       ),
     );
   }

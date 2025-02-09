@@ -1,6 +1,7 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shapes/containers/rounded_container.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/images/rounded_image.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -22,7 +23,7 @@ class PhotoContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TSizes.spaceBtwItems.verticalSpace,
-              Text(TEnglishTexts.prescriptionPhoto, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w400)),
+              Text(TranslationKey.kPrescriptionPhoto, style: Theme.of(context).textTheme.titleLarge?.copyWith(fontSize: 14, fontWeight: FontWeight.w400)),
               TSizes.spaceBtwItems.verticalSpace,
               TRoundedContainer(
                 height: 200.h,

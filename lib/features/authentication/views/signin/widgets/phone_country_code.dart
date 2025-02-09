@@ -1,3 +1,4 @@
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/image_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
@@ -76,7 +77,7 @@ class _PhoneCountryCodeState<T extends GetxController> extends State<PhoneCountr
                         enableInteractiveSelection: false,
                         controller: (widget.controller as dynamic).phoneController,
                         decoration: InputDecoration(
-                          hintText: TEnglishTexts.phoneNumber,
+                          hintText: TranslationKey.kPhoneNumber,
                           hintStyle: Theme.of(context).textTheme.labelLarge?.copyWith(
                               color: const Color(0xFF707070),
                               fontSize: 14,

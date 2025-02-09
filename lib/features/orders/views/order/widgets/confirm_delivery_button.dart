@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/loaders/loading_widget.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/device/device_utility.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
@@ -21,7 +22,7 @@ class ConfirmDeliveryButton extends StatelessWidget {
           await OrdersController.instance.setPrice();
           OrdersController.instance.assign(driverID: driverID);
         },
-        child: Text(TEnglishTexts.confirmDelivery),
+        child: Text(TranslationKey.kConfirmDelivery),
       ),
     )));
   }

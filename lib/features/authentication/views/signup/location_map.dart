@@ -2,6 +2,7 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/appbar/appbar.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/current_marker.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/map/road.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/api_constants.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/services/map_services.dart';
@@ -87,7 +88,7 @@ class _LocationMapState extends State<LocationMap> {
                           SizedBox(
                             height: 50.h,
                             width: double.infinity,
-                            child: ElevatedButton(onPressed: () => Get.back(), child: Text(TEnglishTexts.tcontinue)),
+                            child: ElevatedButton(onPressed: () => Get.back(), child: Text(TranslationKey.kTcontinue)),
                           )
                         ],
                       ),
