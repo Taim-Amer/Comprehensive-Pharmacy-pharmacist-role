@@ -60,13 +60,9 @@ class OrderScreen extends StatelessWidget {
                 children: [
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[0]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[1]),
-                  // OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[2]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[3]),
                   OrdersList(status: OrdersController.instance.orderStatusChipList2[4]),
-                  // CompletedList(status: 'pending',),
-                  // CompletedList(status: 'canceled',),
-                  // CompletedList(status: 'rejected',),
                 ],
               ),
             )),

@@ -55,15 +55,6 @@ class _UserLocationMapState extends State<DriversMap> {
   Widget build(BuildContext context) {
     final dark = THelperFunctions.isDarkMode(context);
     return Scaffold(
-      appBar: TAppBar(actions: [
-        TextButton(
-          onPressed: (){
-            showSnackBar("Order Confirmed", AlertState.success);
-            Get.offAllNamed(AppRoutes.order);
-          },
-          child: Text(TranslationKey.kNext, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.bold, color: TColors.primary)),
-        )],),
-      // floatingActionButton: FloatingActionButton(onPressed: () => setState(() {})),
       body: Column(
         children: [
           Expanded(

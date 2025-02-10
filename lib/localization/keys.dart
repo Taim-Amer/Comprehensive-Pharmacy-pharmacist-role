@@ -45,12 +45,12 @@ class TranslationKey {
   static String get kLanguages => "languages".tr;
   static String get kPrivacy => "privacy".tr;
   static String get kSignOut => "signOut".tr;
-  static String get kCompleted => "completed";
-  static String get kPending => "pending";
-  static String get kCanceled => "canceled";
-  static String get kRejected => "rejected";
-  static String get kProcessing => "processing";
-  static String get kOnTheWay => "onTheWay";
+  static String get kCompleted => "completed".tr;
+  static String get kPending => "pending".tr;
+  static String get kCanceled => "canceled".tr;
+  static String get kRejected => "rejected".tr;
+  static String get kProcessing => "processing".tr;
+  static String get kOnTheWay => "onTheWay".tr;
   static String get kOrderID => "orderID".tr;
   static String get kPharmacyName => "pharmacyName".tr;
   static String get kOrderDate => "orderDate".tr;
@@ -111,4 +111,12 @@ class TranslationKey {
   static String get kOnTheWayOrdersEmptySubTitle => "onTheWayOrdersEmptySubTitle".tr;
   static String get kCanceledOrdersEmptyTitle => "canceledOrdersEmptyTitle".tr;
   static String get kCanceledOrdersEmptySubTitle => "canceledOrdersEmptySubTitle".tr;
+  static String get kViewOrder => 'viewOrder'.tr;
+  static String get kNewOrder => 'newOrder'.tr;
+  static String get kFinishedOrder => 'finishOrder'.tr;
+  static String get kCurrentOrder => 'currentOrder'.tr;
+  static String get kConfirmOrder => 'confirmOrder'.tr;
+  static String get kRejectOrder => 'rejectOrder'.tr;
+  static String get kReady => 'ready'.tr;
+  static String get kReady2 => 'ready2'.tr;
 }

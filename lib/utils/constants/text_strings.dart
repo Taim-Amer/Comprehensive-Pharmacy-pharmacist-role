@@ -62,7 +62,7 @@ class TArabicTexts {
   static String get rejected => 'مرفوض';
   static String get processing => 'قيد المعالجة';
   static String get onTheWay => 'في الطريق';
-  static String get orderID => 'رقم الطلب: #2345213';
+  static String get orderID => 'رقم الطلب: ';
   static String get orderDate => 'تاريخ الطلب';
   static String get orderDetails => 'تفاصيل الطلب';
   static String get prescriptionPhoto => 'صورة الوصفة الطبية';
@@ -214,7 +214,7 @@ class TEnglishTexts {
   static String get rejected => 'Rejected';
   static String get processing => "Processing";
   static String get onTheWay => "On the way";
-  static String get orderID => 'Order ID : #2345213';
+  static String get orderID => 'Order ID : ';
   static String get orderDate => 'Order date';
   static String get finalPrice => 'Final price';
   static String get orderDetails => 'Order Details';

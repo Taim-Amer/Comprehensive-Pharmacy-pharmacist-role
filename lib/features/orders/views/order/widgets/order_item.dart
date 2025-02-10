@@ -104,7 +104,7 @@ class OrderItem extends StatelessWidget {
             TSizes.md.verticalSpace,
             showViewButton ? SizedBox(
               height: 36.h,
-              child: ElevatedButton(onPressed: () => OrdersController.instance.showOrder(orderID: orderID), child: Text(TEnglishTexts.viewOrders)),
+              child: ElevatedButton(onPressed: () => OrdersController.instance.showOrder(orderID: orderID), child: Text(TranslationKey.kViewOrder)),
               // child: ElevatedButton(onPressed: () => THelperFunctions.getPlaceName(33.4673200, 36.3380500), child: Text(TEnglishTexts.viewOrders)),
             ) : const SizedBox(),
           ],

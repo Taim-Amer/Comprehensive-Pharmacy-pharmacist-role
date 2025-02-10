@@ -59,10 +59,10 @@ class OrdersController extends GetxController {
 
   var selectedChips = <bool>[true, false, false, false].obs;
   var orderStatusChipList = <String>[
-    TEnglishTexts.newOrders,
-    TEnglishTexts.finishedOrders,
+    TranslationKey.kNewOrder,
+    TranslationKey.kFinishedOrder,
     TranslationKey.kRejected,
-    TEnglishTexts.currentOrders,
+    TranslationKey.kCurrentOrder,
     TranslationKey.kOnTheWay,
   ].obs;
 

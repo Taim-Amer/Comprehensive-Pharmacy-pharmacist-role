@@ -1,5 +1,6 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/loaders/loading_widget.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,7 @@ class ConfirmOrderButton extends StatelessWidget {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () => OrdersController.instance.confirm(orderID: OrdersController.instance.orderDetailsModel.value.data!.id!).then((value) => OrdersController.instance.getDrivers()),
-        child: Text(TEnglishTexts.confirmOrder),
+        child: Text(TranslationKey.kConfirmOrder),
       ),
     ));
   }

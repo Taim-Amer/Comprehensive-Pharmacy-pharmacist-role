@@ -16,7 +16,7 @@ class RejectOrderButton extends StatelessWidget {
       width: double.infinity,
       child: OutlinedButton(
         onPressed: () => OrdersController.instance.reject(orderID: OrdersController.instance.orderDetailsModel.value.data!.id!),
-        child: Text(TranslationKey.kRejected),
+        child: Text(TranslationKey.kRejectOrder),
       ),
     );
   }
