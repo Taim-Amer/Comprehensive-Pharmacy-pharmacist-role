@@ -2,10 +2,10 @@ import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/custom_shape
 import 'package:comprehensive_pharmacy_pharmacy_role/common/widgets/list_tiles/setting_menu_tile.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/drawer_header.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/settings/settings_screen.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/features/personalization/views/settings/theme_screen.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
-import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/text_strings.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -25,12 +25,12 @@ class GeneralDrawer extends StatelessWidget {
             padding: EdgeInsets.all(TSizes.md),
             child: TDrawerHeader(),
           ),
-          TSettingMenuTile(icon: Iconsax.home, title: TranslationKey.kHome,),
+          TSettingMenuTile(icon: Iconsax.home, title: TranslationKey.kHome, onTap: () => Get.to(ColorPickerScreen()),),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),
           ),
-          TSettingMenuTile(icon: Iconsax.task, title: TranslationKey.kMyOrders,),
+          TSettingMenuTile(icon: Iconsax.task, title: TranslationKey.kMyOrders, onTap: () => Get.back(),),
           TRoundedContainer(
             height: 1,
             backgroundColor: dark ? TColors.black : const Color(0xFFF3F3F3),

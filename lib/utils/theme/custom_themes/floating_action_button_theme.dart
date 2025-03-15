@@ -4,15 +4,15 @@ import 'package:flutter/material.dart';
 class TFloatingActionButtonTheme{
   TFloatingActionButtonTheme._();
 
-  static FloatingActionButtonThemeData lightFloatingActionTheme = const FloatingActionButtonThemeData(
+  static FloatingActionButtonThemeData lightFloatingActionTheme = FloatingActionButtonThemeData(
     backgroundColor: TColors.primary,
     foregroundColor: Colors.white,
-    shape: CircleBorder(),
+    shape: const CircleBorder(),
   );
 
-  static FloatingActionButtonThemeData darkFloatingActionTheme = const FloatingActionButtonThemeData(
+  static FloatingActionButtonThemeData darkFloatingActionTheme = FloatingActionButtonThemeData(
     backgroundColor: TColors.primary,
     foregroundColor: Colors.white,
-    shape: CircleBorder(),
+    shape: const CircleBorder(),
   );
 }

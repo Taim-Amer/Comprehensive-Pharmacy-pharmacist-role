@@ -122,6 +122,7 @@ class TAppTranslations extends Translations {
       'rejectOrder': TEnglishTexts.rejectOrder,
       'ready': TEnglishTexts.readyToReceiveTitle,
       'ready2': TEnglishTexts.readyToReceiveSubTitle,
+      'totalCost': TEnglishTexts.totalCost,
     },
     'ar': {
       'next': TArabicTexts.next,
@@ -248,6 +249,7 @@ class TAppTranslations extends Translations {
       'rejectOrder': TArabicTexts.rejectOrder,
       'ready': TArabicTexts.readyToReceiveTitle,
       'ready2': TArabicTexts.readyToReceiveSubTitle,
+      'totalCost': TArabicTexts.totalCost,
     },
   };
 }

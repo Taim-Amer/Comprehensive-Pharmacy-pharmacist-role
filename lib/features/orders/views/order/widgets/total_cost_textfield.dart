@@ -1,4 +1,5 @@
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/controllers/orders_controller.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/localization/keys.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/helpers/exports.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/validators/validation.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +15,12 @@ class TotalCostTextfield extends StatelessWidget {
       height: 50.h,
       child: TextFormField(
         controller: OrdersController.instance.costController,
-        validator: (value) => TValidator.validateEmptyText(value, TEnglishTexts.totalCost),
+        validator: (value) => TValidator.validateEmptyText(value, TranslationKey.kTotalCost),
         enableInteractiveSelection: false,
         cursorColor: TColors.primary,
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
-          hintText: TEnglishTexts.totalCost,
+          hintText: TranslationKey.kTotalCost,
           prefixIcon: const Icon(Icons.monetization_on),
         ),
       ),

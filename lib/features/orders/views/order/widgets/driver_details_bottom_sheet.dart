@@ -3,6 +3,7 @@ import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order
 import 'package:comprehensive_pharmacy_pharmacy_role/features/orders/views/order/widgets/total_cost_textfield.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/sizes.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/device/device_utility.dart';
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/formatters/formatter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -43,7 +44,7 @@ Future<dynamic> showDriverDetailsBottomsheet({required String name, required Str
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     const Icon(Iconsax.mobile),
-                    Text(phone),
+                    Text(TFormatter.formatPhoneNumber(phone)),
                   ],
                 ),
                 TSizes.spaceBtwSections.verticalSpace,

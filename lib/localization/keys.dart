@@ -119,4 +119,5 @@ class TranslationKey {
   static String get kRejectOrder => 'rejectOrder'.tr;
   static String get kReady => 'ready'.tr;
   static String get kReady2 => 'ready2'.tr;
+  static String get kTotalCost => 'totalCost'.tr;
 }

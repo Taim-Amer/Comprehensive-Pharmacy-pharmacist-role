@@ -1,4 +1,4 @@
-
+import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/colors.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/constants/enums.dart';
 import 'package:comprehensive_pharmacy_pharmacy_role/utils/storage/cache_helper.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +13,7 @@ class SettingsController extends GetxController {
   Rx<Locale> locale = const Locale("en").obs;
   var logoutApiStatus = RequestState.begin.obs;
   var themeMode = ThemeMode.system.obs;
+  // Rx<Color> currentPrimaryColor = TColors.primary.obs;
 
   @override
   void onInit() {
@@ -24,6 +25,10 @@ class SettingsController extends GetxController {
       themeMode.value = ThemeMode.dark;
     } else {
       themeMode.value = ThemeMode.system;
+    }
+    int? savedColorValue = TCacheHelper.getData(key: "primaryColor");
+    if (savedColorValue != null) {
+      TColors.primary = Color(savedColorValue);
     }
   }
 
@@ -48,6 +53,14 @@ class SettingsController extends GetxController {
       TCacheHelper.saveData(key: "locale", value: "en");
       Get.updateLocale(locale.value);
     }
-    selectedLanguageNotifier.value = language; // التأكد من تحديث ValueNotifier
+    selectedLanguageNotifier.value = language;
   }
+
+  void updatePrimaryColor(Color color) {
+    TColors.primary = color;
+    TCacheHelper.saveData(key: "primaryColor", value: color.value);
+    // Get.appUpdate();
+    Get.forceAppUpdate();
+  }
+
 }

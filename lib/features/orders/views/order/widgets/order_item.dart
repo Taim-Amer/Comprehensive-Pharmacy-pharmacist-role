@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 
 class OrderItem extends StatelessWidget {
-  const OrderItem({super.key, this.showViewButton = true, required this.orderID, required this.orderDate, required this.orderStatus, required this.customerName, required this.phoneNumber});
+  const OrderItem({super.key, this.showViewButton = true, required this.orderID, required this.orderDate, required this.orderStatus, required this.customerName, required this.phoneNumber, required this.price});
 
   final bool showViewButton;
   final int orderID;
@@ -15,6 +15,7 @@ class OrderItem extends StatelessWidget {
   final String orderStatus;
   final String customerName;
   final String phoneNumber;
+  final String price;
 
   @override
   Widget build(BuildContext context) {
@@ -96,7 +97,7 @@ class OrderItem extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(orderDate, style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
+                    Text(price.toString(), style: Theme.of(context).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w400, fontSize: 12)),
                   ],
                 ),
               ],
@@ -105,7 +106,6 @@ class OrderItem extends StatelessWidget {
             showViewButton ? SizedBox(
               height: 36.h,
               child: ElevatedButton(onPressed: () => OrdersController.instance.showOrder(orderID: orderID), child: Text(TranslationKey.kViewOrder)),
-              // child: ElevatedButton(onPressed: () => THelperFunctions.getPlaceName(33.4673200, 36.3380500), child: Text(TEnglishTexts.viewOrders)),
             ) : const SizedBox(),
           ],
         ),

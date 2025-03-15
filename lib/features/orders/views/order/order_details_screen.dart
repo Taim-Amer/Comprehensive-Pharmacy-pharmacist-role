@@ -42,6 +42,7 @@ class OrderDetailsScreen extends StatelessWidget {
             customerName: orderDetails.customer?.name ?? 'Unknown',
             phoneNumber: orderDetails.customer?.phone ?? 'Unknown',
             showViewButton: false,
+            price: orderDetails.price ?? "0",
           ),
           TSizes.spaceBtwItems.verticalSpace,
           const PhotoContainer(),

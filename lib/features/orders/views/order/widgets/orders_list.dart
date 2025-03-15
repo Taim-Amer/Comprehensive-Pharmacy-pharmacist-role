@@ -41,6 +41,7 @@ class OrdersList extends StatelessWidget {
               orderDate: order.createdAt ?? 'Unknown Date',
               orderStatus: status ?? 'Unknown Status',
               phoneNumber: order.customer?.phone ?? '',
+              price: order.price ?? "0",
             );
           },
         ),

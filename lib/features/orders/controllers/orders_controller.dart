@@ -107,7 +107,7 @@ class OrdersController extends GetxController {
   Widget emptyForm(String status){
     Widget empty = TEmptyForm(image: TImages.newOrderEmpty, title: TranslationKey.kNewOrdersEmptyTitle, subTitle: TranslationKey.kNewOrdersEmptySubTitle);
     if(status == orderStatusChipList2[0]){
-      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TEnglishTexts.newOrdersEmptyTitle, subTitle: TEnglishTexts.newOrdersEmptySubTitle);
+      empty = TEmptyForm(image: TImages.newOrderEmpty, title: TranslationKey.kNewOrdersEmptyTitle, subTitle: TranslationKey.kNewOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[1]){
       empty = TEmptyForm(image: TImages.finishedOrderEmpty, title: TranslationKey.kFinishedOrdersEmptyTitle, subTitle: TranslationKey.kFinishedOrdersEmptySubTitle);
     } else if(status == orderStatusChipList2[2]){
