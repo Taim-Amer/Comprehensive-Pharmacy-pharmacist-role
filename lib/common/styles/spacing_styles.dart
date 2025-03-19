@@ -10,3 +10,4 @@ class TSpacingStyle {
     right: TSizes.defaultSpace.w,
   );
 }
+
